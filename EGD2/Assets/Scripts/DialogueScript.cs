@@ -12,40 +12,38 @@ public class DialogueScript : MonoBehaviour
     public Text nameTwo;
     public Text dialogueText;
     public Animator animator;
+    bool playerTalking;
+    public string name1;
+    public string name2;
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
-        names = new Queue<string>();
-        nameOrder = new Queue<int>();
     }
 
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialoguePlayer(Dialogue dialogue)
+    {
+        playerTalking = true;
+        StartDialogue(dialogue);
+    }
+
+    public void StartDialogueNPC(Dialogue dialogue)
+    {
+        playerTalking = false;
+        StartDialogue(dialogue);
+    }
+
+    void StartDialogue(Dialogue dialogue)
     {
         //Debug.Log("Starting conversation between " + dialogue.name1 + " and " + dialogue.name2);
         animator.SetBool("isOpen", true);
         sentences.Clear();
-        names.Clear();
-        nameOrder.Clear();
+        name1 = dialogue.name1;
+        name2 = dialogue.name2;
         for(int i = 0; i < dialogue.sentences.Length; i++)
         {
             string sentence = dialogue.sentences[i];
-            int person = dialogue.name[i];
-            string name;
-            int nameNum;
-            if(person == 0)
-            {
-                name = dialogue.name1;
-                nameNum = 0;
-            }
-            else
-            {
-                name = dialogue.name2;
-                nameNum = 1;
-            }
             sentences.Enqueue(sentence);
-            names.Enqueue(name);
-            nameOrder.Enqueue(nameNum);
         }
         DisplayNextSentence();
     }
@@ -57,17 +55,17 @@ public class DialogueScript : MonoBehaviour
             EndDialogue();
             return;
         }
-        string name = names.Dequeue();
-        int nameNum = nameOrder.Dequeue();
-        if(nameNum == 0)
+        if(playerTalking)
         {
-            nameOne.text = name;
+            nameOne.text = name1;
             nameTwo.text = "";
+            playerTalking = false;
         }
         else
         {
             nameOne.text = "";
-            nameTwo.text = name;
+            nameTwo.text = name2;
+            playerTalking = true;
         }
         string sentence = sentences.Dequeue();
         //dialogueText.text = sentence;
