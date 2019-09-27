@@ -21,6 +21,8 @@ public class Move : MonoBehaviour {
     public float footstepTime = 0.5f;
     private float footTimer = 0f;
     public float moveLockTime = 1f;
+    private CharacterController controller;
+    Vector3 velocity;
 
     public bool isPlayerControllable = true;
 
@@ -31,6 +33,7 @@ public class Move : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        controller = GetComponent<CharacterController>();
         rgd = GetComponent<Rigidbody>();
         footStep = GetComponent<AudioSource>();
         rotateScript = cam.GetComponent<rotate>();
@@ -49,14 +52,18 @@ public class Move : MonoBehaviour {
         {
             camDir = new Vector3(cam.transform.forward.x, 0, cam.transform.forward.z).normalized;
             camSid = new Vector3(cam.transform.right.x, 0, cam.transform.right.z).normalized;
-            if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0)
-            {
-                rgd.MovePosition(transform.position + Input.GetAxis("Horizontal") * camSid * Time.deltaTime * speed);
-            }
-            if (Mathf.Abs(Input.GetAxis("Vertical")) > 0)
-            {
-                rgd.MovePosition(transform.position + Input.GetAxis("Vertical") * camDir * Time.deltaTime * speed);
-            }
+
+            Vector3 fwd = Input.GetAxisRaw("Horizontal") * camSid;
+            Vector3 sid = Input.GetAxisRaw("Vertical") * camDir;
+
+            Vector3 move = fwd + sid;
+            controller.Move(move * Time.deltaTime * speed);
+            if (move != Vector3.zero)
+                transform.forward = move;
+
+            velocity.y += Physics.gravity.y * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
+
             if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0 && !playing || Mathf.Abs(Input.GetAxis("Vertical")) > 0 && !playing)
             {
                 int i = Random.Range(0, aud.Count - 1);
