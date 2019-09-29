@@ -15,10 +15,12 @@ public class DialogueScript : MonoBehaviour
     bool playerTalking;
     public string name1;
     public string name2;
+    Move player;
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
+        player = FindObjectOfType<Move>();
     }
 
     public void StartDialoguePlayer(Dialogue dialogue)
@@ -90,5 +92,6 @@ public class DialogueScript : MonoBehaviour
         nameTwo.text = "";
         dialogueText.text = "";
         animator.SetBool("isOpen", false);
+        player.LockMouse();
     }
 }

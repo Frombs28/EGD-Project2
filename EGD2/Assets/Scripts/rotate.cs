@@ -25,11 +25,5 @@ public class rotate : MonoBehaviour {
             rotateY = Mathf.Clamp(rotateY, -90, 90);
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(rotateY, rotateX, 0), rotateTime);
         }
-        else
-        {
-            rotateX = 0;
-            rotateY = 0;
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(rotateY, rotateX, 0), rotateTime);
-        }
     }
 }

@@ -25,11 +25,17 @@ public class DialogueTrigger : MonoBehaviour
     {
         dialogue.name1 = playerName;
         dialogue.name2 = npc.myName;
-        /*
-         * put sentences change here; call upon the  
-         */
-        //sentences = manager.GetDialogue(id);
-        sentences = npc.GetDialogue();
+        // If the npc has not been talked to, do the dialogue.
+        // Other wise, do the one liner.
+        if (!npc.IsTalkedTo())
+        {
+            sentences = npc.GetDialogue();
+            
+        }
+        else
+        {
+            sentences = npc.GetOneLiner();
+        }
         dialogue.SetDialogue(sentences);
         FindObjectOfType<DialogueScript>().StartDialoguePlayer(dialogue);
     }

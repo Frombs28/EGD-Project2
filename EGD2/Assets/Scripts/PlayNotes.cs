@@ -11,12 +11,13 @@ public class PlayNotes : MonoBehaviour
     private bool holdingDown = false;
     private List<KeyCode> currentKeys;
     private float semitone = 1.05946f;
+    Move player;
 
     // Start is called before the first frame update
     void Start()
     {
         currentKeys = new List<KeyCode>();
-
+        player = FindObjectOfType<Move>();
         auds = new List<AudioSource>();
         for(int i = 0; i < 4; i++)
         {
@@ -30,6 +31,10 @@ public class PlayNotes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!player.isPlayerControllable)
+        {
+            return;
+        }
         if (Input.anyKeyDown)
         {
             foreach (char a in Input.inputString)
