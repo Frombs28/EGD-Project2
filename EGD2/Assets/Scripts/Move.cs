@@ -105,14 +105,32 @@ public class Move : MonoBehaviour {
                 }
             }
             */
-            txt.text = "Press E";
-            if (Input.GetKeyDown(KeyCode.E))
+            if(other.gameObject.tag == "NPC")
             {
-                other.gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
-                txt.text = "";
-                UnlockMouse();
-
+                txt.text = "Press E";
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    other.gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+                    txt.text = "";
+                    UnlockMouse();
+                }
+                return;
             }
+            else if(other.gameObject.tag == "Memory")
+            {
+                //txt.text = "Press E to remember";
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (!other.gameObject.GetComponent<Memory>().HasBeenViewed())
+                    {
+                        other.gameObject.GetComponent<Memory>().Begin();
+                        txt.text = "";
+                        UnlockMouse();
+                    }
+                }
+                return;
+            }
+
         }
     }
 
@@ -130,6 +148,17 @@ public class Move : MonoBehaviour {
         Cursor.visible = true;
         isPlayerControllable = false;
         rotateScript.fading = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Memory")
+        {
+            if (!other.gameObject.GetComponent<Memory>().HasBeenViewed())
+            {
+                txt.text = "Press E to remember";
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other)
