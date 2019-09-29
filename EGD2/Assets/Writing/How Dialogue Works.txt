@@ -1,0 +1,19 @@
+How the dialogue system works:
+
+1. Set up the DIALOGUE MANAGER. This is a prefab. This should be an empty GameObject
+with nothing but a transform and a DIALOGUE SCRIPT. In the DIALOGUE SCRIPT, there
+should be several public variables that need to be filled in. NAME ONE is the Text where the name of the player shall be displayed during conversation. NAME TWO is the Text where the name of the NPC shall be displayed during conversation. DIALOGUE TEXT is the Text where the actual dialogue shall appear during converations. ANIMATOR is the DIALOGUEBOX Animator, which should be on the DIALOGUEBOX object. Name 1 and Name 2 are not important; they are only public so they can be modified later.
+
+2. Set up the DIALOGUE BOX. This is a prefab. It should have an ANIMATOR that uses the DIALOGUEBOX Controller. It should also have a BUTTON script, which, on click, runs the DIALOGUEMANAGER script, the DISPLAY-NEXT-SENTENCE() function.
+
+3. Set up the children of the DIALOGE BOX. These should be part of the prefab. These are simply Texts that mark the location of where Name1, Name2, and the Dialogue should appear. Dialogue also has an Animator, but I do not know if this is needed.
+
+4. Set up the NPC. This is where much of the work is done. Attach the DIALOGUE TRIGGER Script and the NPC SCRIPT script to the NPC. In the NPC SCRIPT script, ensure that the ID number is what it must be. These are as follows:
+0 - Wheel
+1 - Helm
+2 - Rigging
+3 - Cargo
+4 - Crow
+Then, in MY DIALOGUE, right all of the dialogue that will occur between the player and that particular NPC.
+
+With all of these steps done, dialogue should work as expected.

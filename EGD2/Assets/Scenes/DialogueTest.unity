@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 227827235}
   - component: {fileID: 227827234}
   - component: {fileID: 227827233}
+  - component: {fileID: 227827237}
   m_Layer: 5
   m_Name: DialogueTest
   m_TagString: Untagged
@@ -173,15 +174,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    sentences:
-    - Woa dialogue is such a cool thing! I'm trying to learn it now from Brackeys!
-      Don't you think these are so cool?
-    - I agree Steve! This is why I am your biggest fan!
-    - Oh shucks, Terry Crews! You're the coolest!
     name1: Sbeve
     name2: Terry Crews
-  myName: Callum
   playerName: Jacques
+  sentences: []
 --- !u!114 &227827234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +271,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 227827231}
   m_CullTransparentMesh: 0
+--- !u!114 &227827237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 227827231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a280b00bf50eb7342beb94e686a938f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myName: Darth Sbeves
+  id: 0
+  myDialogue:
+  - Yo
+  - Wassup
+  - Nothing much hbu?
 --- !u!1 &257594112
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,6 +934,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5108375780210526754, guid: 145cd266949ae8543baa5825026bae5f,
+        type: 3}
+      propertyPath: nameOne
+      value: 
+      objectReference: {fileID: 844821351}
+    - target: {fileID: 5108375780210526754, guid: 145cd266949ae8543baa5825026bae5f,
+        type: 3}
+      propertyPath: nameTwo
+      value: 
+      objectReference: {fileID: 1877287954}
+    - target: {fileID: 5108375780210526754, guid: 145cd266949ae8543baa5825026bae5f,
+        type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 1468431411}
+    - target: {fileID: 5108375780210526754, guid: 145cd266949ae8543baa5825026bae5f,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 970835845}
+    - target: {fileID: 5108375780210526754, guid: 145cd266949ae8543baa5825026bae5f,
+        type: 3}
+      propertyPath: name1
+      value: A
+      objectReference: {fileID: 0}
+    - target: {fileID: 5108375780210526754, guid: 145cd266949ae8543baa5825026bae5f,
+        type: 3}
+      propertyPath: name2
+      value: B
+      objectReference: {fileID: 0}
     - target: {fileID: 5108375780210526755, guid: 145cd266949ae8543baa5825026bae5f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -975,25 +1019,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5108375780210526754, guid: 145cd266949ae8543baa5825026bae5f,
-        type: 3}
-      propertyPath: nameOne
-      value: 
-      objectReference: {fileID: 844821351}
-    - target: {fileID: 5108375780210526754, guid: 145cd266949ae8543baa5825026bae5f,
-        type: 3}
-      propertyPath: nameTwo
-      value: 
-      objectReference: {fileID: 1877287954}
-    - target: {fileID: 5108375780210526754, guid: 145cd266949ae8543baa5825026bae5f,
-        type: 3}
-      propertyPath: dialogueText
-      value: 
-      objectReference: {fileID: 1468431411}
-    - target: {fileID: 5108375780210526754, guid: 145cd266949ae8543baa5825026bae5f,
-        type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 970835845}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 145cd266949ae8543baa5825026bae5f, type: 3}

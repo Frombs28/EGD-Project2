@@ -40,9 +40,9 @@ public class DialogueScript : MonoBehaviour
         sentences.Clear();
         name1 = dialogue.name1;
         name2 = dialogue.name2;
-        for(int i = 0; i < dialogue.sentences.Length; i++)
+        for(int i = 0; i < dialogue.Length(); i++)
         {
-            string sentence = dialogue.sentences[i];
+            string sentence = dialogue.Get(i);
             sentences.Enqueue(sentence);
         }
         DisplayNextSentence();
