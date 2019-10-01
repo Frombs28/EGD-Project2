@@ -6,16 +6,23 @@ public class DayNightController : MonoBehaviour
 
     public Light sun;
     public Light moon;
+    public GameObject stars;
+    public GameObject player;
     public float secondsInFullDay = 120f;
     [Range(0, 1)]
     public float currentTimeOfDay = 0;
     [HideInInspector]
     public float timeMultiplier = 1f;
+    private float currentTime;
+    public float timeToLerp = 5f;
+
+    private Color transparent;
 
     float sunInitialIntensity;
 
     void Start()
     {
+        transparent = new Color(1, 1, 1, 0);
         sunInitialIntensity = sun.intensity;
     }
 
@@ -23,12 +30,38 @@ public class DayNightController : MonoBehaviour
     {
         UpdateSun();
         UpdateMoon();
+        UpdateStars();
 
         currentTimeOfDay += (Time.deltaTime / secondsInFullDay) * timeMultiplier;
 
         if (currentTimeOfDay >= 1)
         {
             currentTimeOfDay = 0;
+        }
+    }
+
+    void UpdateStars()
+    {
+        Transform[] starTransforms = stars.GetComponentsInChildren<Transform>();
+        Renderer[] starList = stars.GetComponentsInChildren<Renderer>();
+        for (int i = 0; i < starList.Length; i++)
+        {
+            //make stars follow player
+            starTransforms[i].position = Vector3.Lerp(starTransforms[i].position, new Vector3(player.transform.position.x, 
+                starTransforms[i].position.y, player.transform.position.z), 0.1f);
+
+            //fade in stars on nighttime
+            if (currentTimeOfDay < .25f || currentTimeOfDay > .75f)
+            {
+                Color newColor = new Color(1,1,1, Mathf.Lerp(starList[i].material.color.a, 1, currentTime/timeToLerp));
+                print(newColor);
+                starList[i].material.color = newColor;
+            }
+            else
+            {
+                Color newColor = new Color(1, 1, 1, Mathf.Lerp(starList[i].material.color.a, 0, currentTime / timeToLerp));
+                starList[i].material.color = newColor;
+            }
         }
     }
 
@@ -67,5 +100,16 @@ public class DayNightController : MonoBehaviour
         }
 
         sun.intensity = sunInitialIntensity * intensityMultiplier/2;
+    }
+
+    IEnumerator FadeTo(Renderer obj, float aValue, float aTime)
+    {
+        float alpha = obj.material.color.a;
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / aTime)
+        {
+            Color newColor = new Color(1, 1, 1, Mathf.Lerp(alpha, aValue, t));
+            obj.material.color = newColor;
+            yield return null;
+        }
     }
 }
