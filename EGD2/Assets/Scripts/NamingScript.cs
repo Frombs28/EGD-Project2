@@ -12,6 +12,8 @@ public class NamingScript : MonoBehaviour
     private NPCScript curNPC;
     public Move player;
     public PlayNotes notes;
+    public GameObject boat;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +69,9 @@ public class NamingScript : MonoBehaviour
         playerField.DeactivateInputField();
         playerField.gameObject.SetActive(false);
         player.LockMouse();
+
+        boat.GetComponent<BoatMove>().canMove = true;
+
         Debug.Log(newName);
     }
 
