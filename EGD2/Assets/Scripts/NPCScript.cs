@@ -47,8 +47,12 @@ public class NPCScript : MonoBehaviour
 
     public void Talk()
     {
+        if(day == 2 && !named)
+        {
+            //name the object
+        }
 
-        gameObject.GetComponent<DialogueTrigger>().TriggerDialogue(0);
+        gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
     }
 
     public void Cheer()
