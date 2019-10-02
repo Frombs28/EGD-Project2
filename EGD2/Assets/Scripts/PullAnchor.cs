@@ -38,7 +38,7 @@ public class PullAnchor : MonoBehaviour
         trigger = true;
 
         count = 0;
-        arrowSpace.enabled = true;
+        arrowSpace.enabled = false;
     }
 
     // Update is called once per frame
