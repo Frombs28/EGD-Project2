@@ -17,3 +17,12 @@ should be several public variables that need to be filled in. NAME ONE is the Te
 Then, in MY DIALOGUE, right all of the dialogue that will occur between the player and that particular NPC.
 
 With all of these steps done, dialogue should work as expected.
+
+Dialogue Indexes:
+0-2:	Random noises
+3:		Outburst
+4-8:	Greetings
+9-13:	Plans
+14-18:	Farewells
+19-23:	Cheers
+24:		Dismissal
