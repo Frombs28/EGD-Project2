@@ -27,6 +27,8 @@ public class DayNightController : MonoBehaviour
 
     float sunInitialIntensity;
 
+    NPCScript[] npcs;
+
     void Start()
     {
         transparent = new Color(1, 1, 1, 0);
@@ -34,6 +36,7 @@ public class DayNightController : MonoBehaviour
 
         starTransforms = stars.GetComponentsInChildren<Transform>();
         starMats = stars.GetComponentsInChildren<Renderer>();
+        npcs = FindObjectsOfType<NPCScript>();
     }
 
     void Update()
@@ -47,6 +50,10 @@ public class DayNightController : MonoBehaviour
         if (currentTimeOfDay >= 1)
         {
             currentTimeOfDay = 0;
+            foreach(NPCScript npc in npcs)
+            {
+                npc.day++;
+            }
         }
     }
 
@@ -65,6 +72,10 @@ public class DayNightController : MonoBehaviour
                 day = true;
                 StartCoroutine(FadeTo(skybox, nightThickness, 10f));
                 StartCoroutine(FadeTo(starMats[0], 1, 30f));
+                foreach (NPCScript npc in npcs)
+                {
+                    npc.RefreshDialogue();
+                }
             }
         }
         else
@@ -74,6 +85,10 @@ public class DayNightController : MonoBehaviour
                 day = false;
                 StartCoroutine(FadeTo(skybox, dayThickness, 5));
                 StartCoroutine(FadeTo(starMats[0], 0, 10f));
+                foreach (NPCScript npc in npcs)
+                {
+                    npc.RefreshDialogue();
+                }
             }
         }
 

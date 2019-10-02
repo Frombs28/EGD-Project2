@@ -12,6 +12,10 @@ public class NPCScript : MonoBehaviour
     public int id = 0;
     public string[] myDialogue;
     public int day = 1;
+    public int[] myArray;
+    public Move player;
+    bool isDay = true;
+    NamingScript nameScript;
     /*
      * This id number will allow us to number NPCs so all scripts know who they are.
      * Set up these ID numbers in the inspector
@@ -26,12 +30,21 @@ public class NPCScript : MonoBehaviour
     {
         named = false;
         talkedTo = false;
+        nameScript = FindObjectOfType<NamingScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void PlayerNameReplace(string newName)
+    {
+        foreach(string sentence in myDialogue)
+        {
+            sentence.Replace("@", newName);
+        }
     }
 
     public bool IsNamed()
@@ -48,9 +61,13 @@ public class NPCScript : MonoBehaviour
 
     public void Talk()
     {
-        if(day == 2 && !named)
+        if(day >= 2 && !named)
         {
-            //name the object
+            nameScript.NameNewCharacter(this);
+            while (!named)
+            {
+                // yeet;
+            }
         }
 
         gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
@@ -68,35 +85,84 @@ public class NPCScript : MonoBehaviour
 
     public string[] GetDialogue()
     {
-        string[] returnVal = new string[4];
+        talkedTo = true;
+        string[] returnVal;
         if(day == 1)
         {
-            int i = Random.Range(0, 2);
+            returnVal = new string[2];
+            int i = Random.Range(0, 3);
+            //returnVal[0] = player.dialogue[myArray[i]];
             returnVal[1] = myDialogue[i];
+            return returnVal;
         }
         if(day == 2)
         {
-
+            returnVal = new string[4];
+            int i = Random.Range(0, 4);
+            //returnVal[0] = player.dialogue[myArray[i]];
+            returnVal[1] = myDialogue[i];
+            int j = Random.Range(0, 4);
+            while(j == i)
+            {
+                j = Random.Range(0, 4);
+            }
+            //returnVal[2] = player.dialogue[myArray[j]];
+            returnVal[3] = myDialogue[j];
+            return returnVal;
         }
-        for(int i = 0; i < 4; i++)
+        returnVal = new string[4];
+        int x;
+        if (isDay)
         {
-            returnVal[i] = myDialogue[i];
+            x = Random.Range(4, 9);
         }
-        talkedTo = true;
+        else
+        {
+            x = Random.Range(14, 19);
+        }
+        
+        //returnVal[0] = player.dialogue[myArray[x]];
+        returnVal[1] = myDialogue[x];
+        int y = Random.Range(9, 14);
+        while (y == x)
+        {
+            y = Random.Range(9, 14);
+        }
+        //returnVal[2] = player.dialogue[myArray[y]];
+        returnVal[3] = myDialogue[y];
         return returnVal;
     }
 
     public string[] GetOneLiner()
     {
-        string[] returnVal = new string[2];
-        returnVal[0] = myDialogue[0];
-        returnVal[1] = myDialogue[4];
+        string[] returnVal = new string[1];
+        if(day == 1)
+        {
+            int i = Random.Range(0, 3);
+            returnVal[0] = myDialogue[i];
+            return returnVal;
+        }
+        if(day == 2)
+        {
+            int i = Random.Range(0, 3);
+            returnVal[0] = myDialogue[i];
+            return returnVal;
+        }
+        returnVal[0] = myDialogue[24];
         return returnVal;
     }
 
     public void RefreshDialogue()
     {
         talkedTo = false;
+        if (isDay)
+        {
+            isDay = false;
+        }
+        else
+        {
+            isDay = true;
+        }
     }
 
     public bool IsTalkedTo()

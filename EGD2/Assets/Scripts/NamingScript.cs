@@ -11,6 +11,7 @@ public class NamingScript : MonoBehaviour
     string curString;
     private NPCScript curNPC;
     public Move player;
+    public PlayNotes notes;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +59,10 @@ public class NamingScript : MonoBehaviour
         }
         foreach (DialogueTrigger trigger in FindObjectsOfType<DialogueTrigger>()){
             trigger.SetPlayerName(newName);
+        }
+        foreach (NPCScript npc in FindObjectsOfType<NPCScript>())
+        {
+            npc.PlayerNameReplace(newName);
         }
         playerField.DeactivateInputField();
         playerField.gameObject.SetActive(false);

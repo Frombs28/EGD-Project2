@@ -34,6 +34,7 @@ public class DialogueTrigger : MonoBehaviour
         }
         else
         {
+            dialogue.name1 = npc.myName;
             sentences = npc.GetOneLiner();
         }
         dialogue.SetDialogue(sentences);
