@@ -125,10 +125,6 @@ public class Move : MonoBehaviour {
                         LockPlayer();
                         other.gameObject.GetComponent<PullAnchor>().TriggerAnchor();
                     }
-                    if(other.gameObject.name == "FishingSpot"){
-                        LockPlayer();
-                        other.gameObject.GetComponent<Fishing>().StartFishing();
-                    }
                 }
                 return;
             }
@@ -147,6 +143,15 @@ public class Move : MonoBehaviour {
                 }
                 return;
             }
+            else if(other.gameObject.name == "FishingSpot")
+                {
+                    txt.text = "Press E to fish";
+                    if(Input.GetKeyDown(KeyCode.E)){
+                        txt.text = "";
+                        LockPlayer();
+                        other.gameObject.GetComponent<Fishing>().StartFishing();
+                    }
+                }
 
         }
     }
