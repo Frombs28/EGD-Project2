@@ -99,6 +99,7 @@ public class Fishing : MonoBehaviour
         Debug.Log("Step is: "+ step);
         if(isFishCaught){
             fishy = Instantiate(fishyPrefab, fishyPrefab.transform.position, Quaternion.identity);
+            fishy.transform.Rotate(0,180,0);
             fishy.SetActive(true);
         }
         for(float t = 1.0f; t-0.0f>=epsilon;t-=step){
@@ -108,12 +109,12 @@ public class Fishing : MonoBehaviour
             }
             fishingLine.positionCount = counter;
             Vector3 newPoint = BezierQuad(t, p0.transform.position, p1.transform.position, p2.transform.position);
-            fishingLine.SetPosition(counter-1, newPoint);
             if(isFishCaught){
                 fishy.transform.position = newPoint;
             }  
             counter-=stepRatio;
             yield return null;
+            fishingLine.SetPosition(counter-1, newPoint);
         }
         fishingLine.positionCount = 0;
         if(isFishCaught){
