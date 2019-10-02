@@ -23,7 +23,8 @@ public class WheelTurn : MonoBehaviour
     {
         if (spinWheel == true)
         {
-            transform.RotateAround(transform.position, transform.up, Time.deltaTime * boat.transform.GetComponent<BoatMove>().last * 50);
+            
+            //transform.RotateAround(transform.position, transform.up, Time.deltaTime * boat.transform.GetComponent<BoatMove>().last * 50);
         }
     }
     public void AllowSpin()

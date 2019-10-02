@@ -145,7 +145,11 @@ public class Move : MonoBehaviour {
                 {
                     if (other.gameObject.name == "Wheel")
                     {
-                        other.gameObject.GetComponent<WheelTurn>().AllowSpin();
+                        if(isPlayerControllable)
+                        {
+                            LockPlayer();
+                            other.gameObject.GetComponent<WheelTurn>().AllowSpin();
+                        }
                     }
                     if (other.gameObject.name == "Boatswain")
                     {
@@ -181,6 +185,18 @@ public class Move : MonoBehaviour {
                     }
                 }
 
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+
+                if (other.gameObject.name == "Wheel")
+                {
+                    UnlockPlayer();
+                    other.gameObject.GetComponent<WheelTurn>().StopSpin();
+                }
+            }
         }
     }
 
