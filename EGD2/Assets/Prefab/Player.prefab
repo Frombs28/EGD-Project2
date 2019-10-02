@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   cam: {fileID: 0}
-  footStep: {fileID: 2754044537113669268}
+  footStep: {fileID: 0}
   txt: {fileID: 0}
   aud:
   - {fileID: 8300000, guid: 5be6a03db13975e4b97b45c61bdb8ce8, type: 3}
@@ -59,6 +59,18 @@ MonoBehaviour:
   footstepTime: 0.8
   moveLockTime: 1
   isPlayerControllable: 1
+  dialogue:
+  - Good morning
+  - Good evening
+  - What's on your mind?
+  - Same to you!
+  - Yeah, I know what you mean.
+  - Absolutely
+  - Thank you
+  - 
+  - 
+  - 
+  isClimbing: 0
   deadRotationSpeed: 0.5
 --- !u!82 &2754044537113669268
 AudioSource:
