@@ -26,7 +26,7 @@ public class Move : MonoBehaviour {
     bool inRange;
     bool talking = false;
     public bool isPlayerControllable = true;
-
+    public string[] dialogue;
     public bool isClimbing = false;
 
     [Space]
