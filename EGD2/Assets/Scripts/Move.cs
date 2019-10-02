@@ -60,14 +60,14 @@ public class Move : MonoBehaviour {
                 }
                 else
                 {
-                    if (Input.GetKey(KeyCode.W))
+                    if (Input.GetKey(KeyCode.W) && transform.position.y < 70)
                     {
-                        Vector3 pos = new Vector3(0f, Time.deltaTime * 30, 0f);
+                        Vector3 pos = new Vector3(0f, Time.deltaTime * 15, 0f);
                         controller.Move(pos);
                     }
                     else
                     {
-                        Vector3 pos = new Vector3(0f, Time.deltaTime * -30, 0f);
+                        Vector3 pos = new Vector3(0f, Time.deltaTime * -15, 0f);
                         controller.Move(pos);
                     }
                 }

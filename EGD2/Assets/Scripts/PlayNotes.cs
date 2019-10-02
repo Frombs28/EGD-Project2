@@ -11,6 +11,7 @@ public class PlayNotes : MonoBehaviour
     private bool holdingDown = false;
     private List<KeyCode> currentKeys;
     private float semitone = 1.05946f;
+    public bool typing;
     //Move player;
 
     // Start is called before the first frame update
@@ -31,10 +32,10 @@ public class PlayNotes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (!player.isPlayerControllable)
-        //{
-        //    return;
-        //}
+        if (typing)
+        {
+            return;
+        }
         if (Input.anyKeyDown)
         {
             foreach (char a in Input.inputString)
