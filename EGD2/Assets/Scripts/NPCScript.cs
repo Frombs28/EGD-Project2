@@ -86,40 +86,52 @@ public class NPCScript : MonoBehaviour
         string[] returnVal;
         if(day == 1)
         {
-            returnVal = new string[2];
+            returnVal = new string[3];
             int i = Random.Range(0, 3);
-            //returnVal[0] = player.dialogue[myArray[i]];
+
+            returnVal[0] = player.dialogue[myArray[0]];
             returnVal[1] = myDialogue[i];
+            returnVal[2] = player.dialogue[myArray[i]];
             return returnVal;
         }
         if(day == 2)
         {
-            returnVal = new string[4];
+            returnVal = new string[5];
             int i = Random.Range(0, 4);
-            //returnVal[0] = player.dialogue[myArray[i]];
+            if (isDay)
+       		{
+            	returnVal[0] = player.dialogue[myArray[0]];
+        	}
+        	else
+        	{
+            	returnVal[0] = player.dialogue[myArray[1]];
+        	}
             returnVal[1] = myDialogue[i];
+            returnVal[2] = player.dialogue[myArray[i]];
             int j = Random.Range(0, 4);
             while(j == i)
             {
                 j = Random.Range(0, 4);
             }
-            //returnVal[2] = player.dialogue[myArray[j]];
             returnVal[3] = myDialogue[j];
+            returnVal[4] = player.dialogue[myArray[j]];
             return returnVal;
         }
-        returnVal = new string[4];
+        returnVal = new string[5];
         int x;
         if (isDay)
         {
             x = Random.Range(4, 9);
+            returnVal[0] = player.dialogue[myArray[0]];
         }
         else
         {
             x = Random.Range(14, 19);
+            returnVal[0] = player.dialogue[myArray[1]];
         }
         
-        //returnVal[0] = player.dialogue[myArray[x]];
         returnVal[1] = myDialogue[x];
+        returnVal[2] = player.dialogue[myArray[x]];
         int y = Random.Range(9, 14);
         while (y == x)
         {
@@ -127,6 +139,7 @@ public class NPCScript : MonoBehaviour
         }
         //returnVal[2] = player.dialogue[myArray[y]];
         returnVal[3] = myDialogue[y];
+        returnVal[4] = player.dialogue[myArray[y]];
         return returnVal;
     }
 
