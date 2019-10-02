@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 457587529849522877}
   - component: {fileID: 4431916075585453841}
   - component: {fileID: 3775379160816247499}
+  - component: {fileID: 9025674327644453870}
   m_Layer: 0
   m_Name: Boatswain
   m_TagString: Untagged
@@ -97,5 +98,17 @@ MonoBehaviour:
   dialogue:
     name1: 
     name2: 
-  playerName: 
   sentences: []
+--- !u!135 &9025674327644453870
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6777688365955234355}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.6
+  m_Center: {x: 0, y: 0, z: 0}

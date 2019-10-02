@@ -47,3 +47,5 @@ MonoBehaviour:
   nameTwo: {fileID: 0}
   dialogueText: {fileID: 0}
   animator: {fileID: 0}
+  name1: A
+  name2: B
