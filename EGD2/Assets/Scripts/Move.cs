@@ -62,12 +62,12 @@ public class Move : MonoBehaviour {
                 {
                     if (Input.GetKey(KeyCode.W))
                     {
-                        Vector3 pos = new Vector3(0f, Time.deltaTime * 30, 0f);
+                        Vector3 pos = new Vector3(0f, Time.deltaTime * 15, 0f);
                         controller.Move(pos);
                     }
                     else
                     {
-                        Vector3 pos = new Vector3(0f, Time.deltaTime * -30, 0f);
+                        Vector3 pos = new Vector3(0f, Time.deltaTime * -15, 0f);
                         controller.Move(pos);
                     }
                 }
@@ -146,7 +146,7 @@ public class Move : MonoBehaviour {
                     {
                         other.gameObject.GetComponent<WheelTurn>().AllowSpin();
                     }
-                    if (other.gameObject.name == "Anchor")
+                    if (other.gameObject.name == "Boatswain")
                     {
                         LockPlayer();
                         other.gameObject.GetComponent<PullAnchor>().TriggerAnchor();
@@ -175,7 +175,8 @@ public class Move : MonoBehaviour {
                     if(Input.GetKeyDown(KeyCode.E)){
                         txt.text = "";
                         LockPlayer();
-                        other.gameObject.GetComponent<Fishing>().StartFishing();
+                        AllowRotation();
+                        other.gameObject.transform.parent.GetComponent<Fishing>().StartFishing();
                     }
                 }
 
@@ -274,6 +275,10 @@ public class Move : MonoBehaviour {
    void AllowMovement()
     {
         isPlayerControllable = true;
+        rotateScript.fading = false;
+    }
+
+    public void AllowRotation(){
         rotateScript.fading = false;
     }
 }
