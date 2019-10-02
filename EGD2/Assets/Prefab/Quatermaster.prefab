@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5544660579560293159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3849593510785144328}
+  - component: {fileID: 2967664055142119009}
+  - component: {fileID: -4032374428545795647}
+  m_Layer: 0
+  m_Name: Quatermaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3849593510785144328
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5544660579560293159}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.69, z: 35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2967664055142119009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5544660579560293159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a280b00bf50eb7342beb94e686a938f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myName: 
+  id: 3
+  myDialogue:
+  - '*metal jingling*'
+  - '*sand settling*'
+  - '*fruits rolling around*'
+  - Tsk, Tsk.
+  - "Well, look what the shark\u2019s dragged in!"
+  - Restful night? Good, no time to waste.
+  - Greetings from above, @.
+  - Welcome back to the land of the working.
+  - I certainly hope you made the best of your late morning, the rest of us have been
+    up since sunrise.
+  - "Surely there must be something better than this\u2026 right?"
+  - "I have this feeling.. In my gut\u2026 sugar? No\u2026.rum? There\u2019s money
+    in trade, but where??"
+  - "Hmm.. in the East they trade silk\u2026.. Is that an open market?"
+  - "I don\u2019t know about you, but the moment we hit land, I\u2019m getting out
+    of this god-forsaken business. There\u2019s barely enough profit to go around."
+  - Keeping inventory is a far FAR stretch from Master Trader, let me tell you that.
+  - Do try not to sleep so late again, hmm?
+  - Rest well.
+  - Good work today. Very good.
+  - Something wrong? No? Then why are you below deck? You need your strength.
+  - "Go ahead, now, @, get some sleep. We\u2019ve got it under control for the night."
+  - Do you really need to play that thing right in my ear?
+  - Ah, more music. Splendid.
+  - "That tune\u2026 it reminds me - never mind that."
+  - "You surprise me, @, you\u2019re actually not half bad with that."
+  - "Not the time, nor the place. There\u2019s work to be done."
+  - If you don't mind, I'm quite busy. Go find somebody else to bother.
+--- !u!114 &-4032374428545795647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5544660579560293159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c1757db796e8d40b076f59c55fc04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name1: 
+    name2: 
+  playerName: 
+  sentences: []

@@ -24,7 +24,7 @@ public class Move : MonoBehaviour {
     private CharacterController controller;
     Vector3 velocity;
     bool inRange;
-
+    bool talking = false;
     public bool isPlayerControllable = true;
 
     [Space]
@@ -107,12 +107,19 @@ public class Move : MonoBehaviour {
             */
             if(other.gameObject.tag == "NPC")
             {
-                txt.text = "Press E";
-                if (Input.GetKeyDown(KeyCode.E))
+                txt.text = "Click to talk";
+                if (Input.GetMouseButtonDown(0) && !talking)
                 {
-                    other.gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+                    other.gameObject.GetComponent<NPCScript>().Talk();
                     txt.text = "";
                     UnlockMouse();
+                }
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (other.gameObject.name == "Wheel")
+                    {
+                        other.gameObject.GetComponent<WheelTurn>().AllowSpin();
+                    }
                 }
                 return;
             }
@@ -125,7 +132,8 @@ public class Move : MonoBehaviour {
                     {
                         other.gameObject.GetComponent<Memory>().Begin();
                         txt.text = "";
-                        UnlockMouse();
+                        cam.gameObject.transform.LookAt(other.gameObject.transform);
+                        LockPlayer();
                     }
                 }
                 return;
@@ -138,16 +146,28 @@ public class Move : MonoBehaviour {
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        isPlayerControllable = true;
-        rotateScript.fading = false;
+        talking = false;
+        UnlockPlayer();
     }
 
     public void UnlockMouse()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        talking = true;
+        LockPlayer();
+    }
+
+    public void LockPlayer()
+    {
         isPlayerControllable = false;
         rotateScript.fading = true;
+    }
+
+    public void UnlockPlayer()
+    {
+        isPlayerControllable = true;
+        rotateScript.fading = false;
     }
 
     private void OnTriggerEnter(Collider other)
