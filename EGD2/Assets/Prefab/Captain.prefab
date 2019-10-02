@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9033292299852844254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2518094296247801707}
+  - component: {fileID: 6518681796725498171}
+  - component: {fileID: 4716750438379935155}
+  m_Layer: 0
+  m_Name: Captain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2518094296247801707
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9033292299852844254}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6518681796725498171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9033292299852844254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a280b00bf50eb7342beb94e686a938f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myName: 
+  id: 0
+  myDialogue:
+  - '*hull groans*'
+  - '*wind moans* '
+  - '*waves drone* '
+  - 'All alone... '
+  - 'Ah, I see you have waddled your way into my pond. Come, lad, quack with me. '
+  - 'The whole ocean to travel and we encounter one another in this spot. Must be
+    written in the stars. '
+  - 'Good morning! The day is bright and the air is free of land stench! '
+  - "Good to see you weren\u2019t swallowed by the sea again! "
+  - 
+  - 'Before ruling people, a man must first learn to rule the diseases of the flesh. '
+  - "A captain in the queen\u2019s coat is as trapped as a bird in the queen\u2019s
+    coat. This bird\u2019s just been offered his coat. "
+  - 
+  - 
+  - 
+  - 'May the waves continue to fill your sails, lad '
+  - "If you keep going North, you\u2019ll always get where you\u2019re headed. "
+  - 'Keep your eyes wide and your ears wider. '
+  - 'If you pursue melody, the melody might pursue you back, and melody is much faster
+    than you. '
+  - 'The time has come for the sun to drown in the sea. But its lungs are strong.
+    It will be back tomorrow. '
+  - "Now that\u2019s sure to win you a mermaid! Or a merman. Or\u2026 seaweed. "
+  - 
+  - 
+  - 
+  - 
+  - Patience, young one. The sea calls my name.
+  day: 1
+  myArray: 
+  player: {fileID: 0}
+--- !u!114 &4716750438379935155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9033292299852844254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c1757db796e8d40b076f59c55fc04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name1: 
+    name2: 
+  sentences: []
