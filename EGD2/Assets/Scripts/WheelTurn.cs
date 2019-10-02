@@ -14,7 +14,7 @@ public class WheelTurn : MonoBehaviour
     void Start()
     {
         //rbdy = GetComponent<Rigidbody>();
-        spinWheel = true;
+        spinWheel = false;
         speed = 2;
     }
 

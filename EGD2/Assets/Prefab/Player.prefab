@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2754044537113669267}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -47,11 +47,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   cam: {fileID: 0}
-  footStep: {fileID: 0}
+  footStep: {fileID: 2754044537113669268}
   txt: {fileID: 0}
   aud:
-  - {fileID: 8300000, guid: ab7f519c5a800294a953e73b2946bcd7, type: 3}
-  footstepTime: 0.5
+  - {fileID: 8300000, guid: 5be6a03db13975e4b97b45c61bdb8ce8, type: 3}
+  - {fileID: 8300000, guid: 52cdac4bdc4d75040b623dc169568226, type: 3}
+  - {fileID: 8300000, guid: cb2b9a74cea67e141a1cddec0eb57d24, type: 3}
+  - {fileID: 8300000, guid: be8cf0a983452ba4b9064119458b2d27, type: 3}
+  - {fileID: 8300000, guid: d6bf83e9fe2085747a94b3b8bc6dbe78, type: 3}
+  - {fileID: 8300000, guid: 56d47358ac1398841a828b5c2fe64aab, type: 3}
+  footstepTime: 0.8
   moveLockTime: 1
   isPlayerControllable: 1
   deadRotationSpeed: 0.5
@@ -163,7 +168,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 10
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3

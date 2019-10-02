@@ -120,6 +120,11 @@ public class Move : MonoBehaviour {
                     {
                         other.gameObject.GetComponent<WheelTurn>().AllowSpin();
                     }
+                    if (other.gameObject.name == "Anchor")
+                    {
+                        LockPlayer();
+                        other.gameObject.GetComponent<PullAnchor>().TriggerAnchor();
+                    }
                 }
                 return;
             }
