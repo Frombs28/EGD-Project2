@@ -60,36 +60,36 @@ MonoBehaviour:
   moveLockTime: 1
   isPlayerControllable: 1
   dialogue:
-  - Good morning
-  - Good evening
+  - Good morning!
+  - Good evening!
   - What's on your mind?
-  - Same to you!
-  - Yeah, I know what you mean.
-  - Absolutely
-  - Thank you
-  - See you
-  - Not really
-  - Hmm?
-  - It me
-  - On my way
-  - I won't
-  - I hope so
-  - Bit of both
+  - Right back at you!
+  - Yeah, I know what you mean...
+  - Absolutely!
+  - Thank you!
+  - Alright, be seeing you.
+  - Not really, no.
+  - Hmm? What was that?
+  - Yep, that's me!
+  - I'm already on my way.
+  - I won't.
+  - I hope so.
+  - A bit of both, actually.
   - '...'
-  - Will do
-  - Of course
-  - yes, you're right
-  - wish I could
-  - oo....kay?
-  - you know it
-  - i'm sorry to hear that
-  - that's pretty severe
-  - not really sure
-  - I don't know
-  - not me
-  - good to hear
-  - just sayin hello
-  - good for you
+  - Okay, will do.
+  - Of course.
+  - You're absolutely right.
+  - I wish I could..
+  - Oo....kay?
+  - You know it!
+  - I'm sorry to hear that...
+  - That's pretty severe, don't you think?
+  - I'm not really sure..
+  - No idea!
+  - It wasn't me, sorry.
+  - That's good to hear!
+  - Just wanted to stop by and say hullo.
+  - That's great news! Good for you!
   isClimbing: 0
   climbSpeed: 15
   deadRotationSpeed: 0.5
