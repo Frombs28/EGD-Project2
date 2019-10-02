@@ -30,6 +30,7 @@
         struct Input
         {
             float2 uv_MainTex;
+            float2 uv_DetailTex;
         };
 
         half _Glossiness;
@@ -79,7 +80,7 @@
         {
             // Albedo comes from a texture tinted by color
             fixed4 col = tex2D(_MainTex, IN.uv_MainTex) + _Color;
-			col += tex2D(_DetailTex, IN.uv_MainTex/2+.1)*_UnderColor;
+			col += tex2D(_DetailTex, IN.uv_DetailTex)*_UnderColor;
             o.Albedo = col.rgb;
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
