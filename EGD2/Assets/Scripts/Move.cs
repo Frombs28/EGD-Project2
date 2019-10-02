@@ -27,6 +27,8 @@ public class Move : MonoBehaviour {
     bool talking = false;
     public bool isPlayerControllable = true;
 
+    public bool isClimbing = false;
+
     [Space]
     [SerializeField]
     private float deadRotationSpeed = .5f;
@@ -48,6 +50,26 @@ public class Move : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
+        if (isClimbing)
+        {
+            if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
+            {
+                controller.Move(new Vector3(0f, 0f, 0f));
+            }
+            else
+            {
+                if (Input.GetKey(KeyCode.W))
+                {
+                    Vector3 pos = new Vector3(0f, Time.deltaTime * 30, 0f);
+                    controller.Move(pos);
+                }
+                else
+                {
+                    Vector3 pos = new Vector3(0f, Time.deltaTime * -30, 0f);
+                    controller.Move(pos);
+                }
+            }
+        }
         if (isPlayerControllable)
         {
             camDir = new Vector3(cam.transform.forward.x, 0, cam.transform.forward.z).normalized;
@@ -182,6 +204,35 @@ public class Move : MonoBehaviour {
             if (!other.gameObject.GetComponent<Memory>().HasBeenViewed())
             {
                 txt.text = "Press E to remember";
+            }
+        }
+        if (other.gameObject.tag == "ladderBase")
+        {
+            if (isClimbing)
+            {
+                isClimbing = false;
+                isPlayerControllable = true;
+            }
+            else
+            {
+                isClimbing = true;
+                isPlayerControllable = false;
+            }
+
+        }
+        if (other.gameObject.tag == "ladderTop")
+        {
+
+            if (isClimbing)
+            {
+                Vector3 moveForwards = transform.forward * Time.deltaTime * 3;
+                isClimbing = false;
+                isPlayerControllable = true;
+            }
+            else
+            {
+                isClimbing = true;
+                isPlayerControllable = false;
             }
         }
     }
