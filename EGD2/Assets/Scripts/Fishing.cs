@@ -13,14 +13,13 @@ public class Fishing : MonoBehaviour
     private float timeBetweenCheck = .1f;
     private LineRenderer fishingLine;
     [SerializeField]
-    private GameObject fishy = null;
+    private GameObject fishyPrefab = null;
     [SerializeField]
     private GameObject p0;
     [SerializeField]
     private GameObject p1;
     [SerializeField]
     private GameObject p2;
-    [SerializeField]
     private float epsilon = .001f;
     Vector3 p0Init, p1Init, p2Init;
     [SerializeField]
@@ -37,19 +36,21 @@ public class Fishing : MonoBehaviour
     [SerializeField]
     private int slowestFish = 5;
     private int fishSpeed = 0;
-    Rigidbody fishyRb;
+    GameObject fishy;
     Move player;
+    private List<GameObject> fishStack;
+    [SerializeField]
+    private GameObject fishStackLocation;
     // Start is called before the first frame update
     void Start()
     {
+        fishStack = new List<GameObject>();
         fishingLine = GetComponent<LineRenderer>();
         fishingLine.positionCount = 0;
         p0Init = p0.transform.position;
         p1Init = p1.transform.position;
         p2Init = p2.transform.position;
-        fishyRb = fishy.GetComponent<Rigidbody>();
-        fishyRb.useGravity = false;
-        fishy.SetActive(false);
+        fishyPrefab.SetActive(false);
         player = FindObjectOfType<Move>();
     }
 
@@ -68,6 +69,7 @@ public class Fishing : MonoBehaviour
 
     public void StartFishing(){
         //throw out line here
+        fishOnLine = false;
         StartCoroutine("CastLine");
         Debug.Log("casting!!1");
     }
@@ -96,6 +98,7 @@ public class Fishing : MonoBehaviour
         isFishing = false;
         Debug.Log("Step is: "+ step);
         if(isFishCaught){
+            fishy = Instantiate(fishyPrefab, fishyPrefab.transform.position, Quaternion.identity);
             fishy.SetActive(true);
         }
         for(float t = 1.0f; t-0.0f>=epsilon;t-=step){
@@ -114,8 +117,9 @@ public class Fishing : MonoBehaviour
         }
         fishingLine.positionCount = 0;
         if(isFishCaught){
-            fishyRb.useGravity = true;
+            //fishyRb.useGravity = true;
             //To Do: have fishy stay/flop for 2 seconds and then set active to false
+            TeleportFish(fishy);
         }
         ResetPoints();
         if(player!=null) player.UnlockPlayer();
@@ -182,5 +186,19 @@ public class Fishing : MonoBehaviour
         StartCoroutine(DrawLineIn(ratio));
         //fishingLine.positionCount = 0;
         isFishing = false;
+    }
+    void TeleportFish(GameObject fish){
+        Vector3 fishLoc = fishStackLocation.transform.position;
+        fishLoc.y += fishStack.Count*fish.GetComponent<BoxCollider>().size.y;
+        fish.transform.position = fishLoc;
+        fishStack.Add(fish);
+    }
+
+    public void ClearFishStack(){
+        foreach (var fish in fishStack)
+        {
+            Destroy(fish);
+        }
+        fishStack.Clear();
     }
 }

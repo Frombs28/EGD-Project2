@@ -171,7 +171,8 @@ public class Move : MonoBehaviour {
                     if(Input.GetKeyDown(KeyCode.E)){
                         txt.text = "";
                         LockPlayer();
-                        other.gameObject.GetComponent<Fishing>().StartFishing();
+                        AllowRotation();
+                        other.gameObject.transform.parent.GetComponent<Fishing>().StartFishing();
                     }
                 }
 
@@ -270,6 +271,10 @@ public class Move : MonoBehaviour {
    void AllowMovement()
     {
         isPlayerControllable = true;
+        rotateScript.fading = false;
+    }
+
+    public void AllowRotation(){
         rotateScript.fading = false;
     }
 }
