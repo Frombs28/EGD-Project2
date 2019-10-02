@@ -22,7 +22,7 @@ public class BoatMove : MonoBehaviour
 
         //rb = GetComponent<Rigidbody>();
         maxVelocity = 10f;
-        startSpeed = new Vector3(1f, 0f, 0f);
+        startSpeed = new Vector3(0f, 0f, 1f);
         startSpeed *= maxVelocity;
         direction = startSpeed;
 
@@ -38,7 +38,7 @@ public class BoatMove : MonoBehaviour
         {
             if (changeCourse == true)
             {
-                if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
+                if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
                 {
                     last = Input.GetAxis("Horizontal");
                 }

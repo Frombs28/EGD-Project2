@@ -18,6 +18,7 @@ public class PullAnchor : MonoBehaviour
 
     int count;
 
+    public GameObject boat;
     public GameObject player;
     public RectTransform spin;
     public Image arrowSpace;
@@ -25,8 +26,8 @@ public class PullAnchor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anchorUp = true;
-        anchorDown = false;
+        anchorUp = false;
+        anchorDown = true;
 
         aPress = false;
         wPress = false;
@@ -81,6 +82,7 @@ public class PullAnchor : MonoBehaviour
             }
             if (count == 16)
             {
+                player.GetComponent<Move>().UnlockPlayer();
                 if (anchorDown)
                 {
                     PullUpAnchor();
@@ -104,21 +106,21 @@ public class PullAnchor : MonoBehaviour
 
     public void PullUpAnchor ()
     {
-        player.GetComponent<Move>().UnlockPlayer();
         anchorUp = true;
         anchorUp = false;
         count = 0;
         arrowSpace.enabled = false;
         trigger = false;
+        boat.GetComponent<BoatMove>().canMove = true;
     }
 
     public void PutDownAnchor()
     {
-        player.GetComponent<Move>().UnlockPlayer();
         anchorDown = true;
         anchorUp = false;
         count = 0;
         arrowSpace.enabled = false;
         trigger = false;
+        boat.GetComponent<BoatMove>().canMove = false;
     }
 }
