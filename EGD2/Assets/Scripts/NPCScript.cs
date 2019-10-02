@@ -64,10 +64,7 @@ public class NPCScript : MonoBehaviour
         if(day >= 2 && !named)
         {
             nameScript.NameNewCharacter(this);
-            while (!named)
-            {
-                // yeet;
-            }
+            return;
         }
 
         gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
