@@ -26,3 +26,17 @@ Dialogue Indexes:
 14-18:	Farewells
 19-23:	Cheers
 24:		Dismissal
+
+Day 1: 0-2
+Day 2: 0-3
+Day 3: 4-24
+
+-Greeting-
+OR
+-Farewells-
+Plans
+Dismissal
+
+Dismissal
+
+If in radius and play, cheer

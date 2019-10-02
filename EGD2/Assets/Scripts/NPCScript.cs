@@ -74,6 +74,10 @@ public class NPCScript : MonoBehaviour
             int i = Random.Range(0, 2);
             returnVal[1] = myDialogue[i];
         }
+        if(day == 2)
+        {
+
+        }
         for(int i = 0; i < 4; i++)
         {
             returnVal[i] = myDialogue[i];
