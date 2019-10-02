@@ -89,7 +89,7 @@ public class NPCScript : MonoBehaviour
             returnVal = new string[3];
             int i = Random.Range(0, 3);
 
-            returnVal[0] = player.dialogue[myArray[0]];
+            returnVal[0] = player.dialogue[0];
             returnVal[1] = myDialogue[i];
             returnVal[2] = player.dialogue[myArray[i]];
             return returnVal;
@@ -100,11 +100,11 @@ public class NPCScript : MonoBehaviour
             int i = Random.Range(0, 4);
             if (isDay)
        		{
-            	returnVal[0] = player.dialogue[myArray[0]];
+            	returnVal[0] = player.dialogue[0];
         	}
         	else
         	{
-            	returnVal[0] = player.dialogue[myArray[1]];
+            	returnVal[0] = player.dialogue[1];
         	}
             returnVal[1] = myDialogue[i];
             returnVal[2] = player.dialogue[myArray[i]];
@@ -122,12 +122,12 @@ public class NPCScript : MonoBehaviour
         if (isDay)
         {
             x = Random.Range(4, 9);
-            returnVal[0] = player.dialogue[myArray[0]];
+            returnVal[0] = player.dialogue[0];
         }
         else
         {
             x = Random.Range(14, 19);
-            returnVal[0] = player.dialogue[myArray[1]];
+            returnVal[0] = player.dialogue[1];
         }
         
         returnVal[1] = myDialogue[x];
