@@ -57,13 +57,15 @@ MonoBehaviour:
     written in the stars. '
   - 'Good morning! The day is bright and the air is free of land stench! '
   - "Good to see you weren\u2019t swallowed by the sea again! "
-  - 
+  - "Good to see you weren\x19t swallowed by the sea again! "
   - 'Before ruling people, a man must first learn to rule the diseases of the flesh. '
   - "A captain in the queen\u2019s coat is as trapped as a bird in the queen\u2019s
     coat. This bird\u2019s just been offered his coat. "
-  - 
-  - 
-  - 
+  - 'Before ruling people, a man must first learn to rule the diseases of the flesh. '
+  - "A captain in the queen\x19s coat is as trapped as a bird in the queen\x19s coat.
+    This bird\x19s just been offered his coat. "
+  - "A captain in the queen\x19s coat is as trapped as a bird in the queen\x19s coat.
+    This bird\x19s just been offered his coat. "
   - 'May the waves continue to fill your sails, lad '
   - "If you keep going North, you\u2019ll always get where you\u2019re headed. "
   - 'Keep your eyes wide and your ears wider. '
@@ -78,7 +80,7 @@ MonoBehaviour:
   - 
   - Patience, young one. The sea calls my name.
   day: 1
-  myArray: 0300000003000000030000000900000014000000020000001b0000000600000000000000140000001600000000000000000000000000000003000000140000001000000014000000070000000f0000000f0000000f0000000f0000000f00000007000000
+  myArray: 0300000003000000030000000900000014000000020000001b0000000600000006000000140000001600000014000000160000001600000003000000140000001000000014000000070000000f0000000f0000000f0000000f0000000f00000007000000
   player: {fileID: 0}
 --- !u!114 &4716750438379935155
 MonoBehaviour:

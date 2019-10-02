@@ -60,7 +60,7 @@ MonoBehaviour:
   moveLockTime: 1
   isPlayerControllable: 1
   dialogue:
-  - Good morning!
+  - Good day!
   - Good evening!
   - What's on your mind?
   - Right back at you!
