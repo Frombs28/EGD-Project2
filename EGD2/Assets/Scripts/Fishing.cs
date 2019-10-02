@@ -114,7 +114,9 @@ public class Fishing : MonoBehaviour
             }  
             counter-=stepRatio;
             yield return null;
-            fishingLine.SetPosition(counter-1, newPoint);
+            if(counter>0){
+                fishingLine.SetPosition(counter-1, newPoint);
+            }    
         }
         fishingLine.positionCount = 0;
         if(isFishCaught){
