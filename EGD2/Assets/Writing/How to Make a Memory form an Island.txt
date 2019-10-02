@@ -1,0 +1,17 @@
+How to Make a Memory form an Island
+
+1. First, place the island wherever we want.
+
+2. Change the LABEL of the island to "Memory"
+
+3. Add a component to the Island: a SPHERE or BOX COLLIDER
+
+4. Make the collider a TRIGGER
+
+5. Add a component to the Island: a MEMORY script
+
+6. Set MEMORY-IMAGE in the MEMORY script to the MEMORY IMAGE in the canvas
+
+7. Set ONE and TWO to the Sprites located in the Assets->Art folder; ask Troy what goes where
+
+8. Set FADE TIME to a reasonable value (requires testing)
