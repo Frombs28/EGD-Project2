@@ -24,7 +24,7 @@ public class Move : MonoBehaviour {
     private CharacterController controller;
     Vector3 velocity;
     bool inRange;
-
+    bool talking = false;
     public bool isPlayerControllable = true;
 
     [Space]
@@ -107,8 +107,8 @@ public class Move : MonoBehaviour {
             */
             if(other.gameObject.tag == "NPC")
             {
-                txt.text = "Press E";
-                if (Input.GetMouseButtonDown(0))
+                txt.text = "Click to talk";
+                if (Input.GetMouseButtonDown(0) && !talking)
                 {
                     other.gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
                     txt.text = "";
@@ -132,7 +132,8 @@ public class Move : MonoBehaviour {
                     {
                         other.gameObject.GetComponent<Memory>().Begin();
                         txt.text = "";
-                        UnlockMouse();
+                        cam.gameObject.transform.LookAt(other.gameObject.transform);
+                        LockPlayer();
                     }
                 }
                 return;
@@ -145,6 +146,7 @@ public class Move : MonoBehaviour {
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        talking = false;
         UnlockPlayer();
     }
 
@@ -152,6 +154,7 @@ public class Move : MonoBehaviour {
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        talking = true;
         LockPlayer();
     }
 

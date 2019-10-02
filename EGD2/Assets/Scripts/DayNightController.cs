@@ -4,6 +4,9 @@ using System.Collections;
 public class DayNightController : MonoBehaviour
 {
 
+    private string skybox = "_AtmosphereThickness";
+    public float dayThickness = 0.75f;
+    public float nightThickness = 2f;
     public Light sun;
     public Light moon;
     public GameObject stars;
@@ -55,12 +58,13 @@ public class DayNightController : MonoBehaviour
         print(starTransforms.Length);
 
         //fade in stars on nighttime
-        if (currentTimeOfDay < .25f || currentTimeOfDay > .75f)
+        if (currentTimeOfDay < .20f || currentTimeOfDay > .70f)
         {
             if (!day)
             {
                 day = true;
-                StartCoroutine(FadeTo(starMats[0], 1, 5f));
+                StartCoroutine(FadeTo(skybox, nightThickness, 10f));
+                StartCoroutine(FadeTo(starMats[0], 1, 30f));
             }
         }
         else
@@ -68,14 +72,15 @@ public class DayNightController : MonoBehaviour
             if (day)
             {
                 day = false;
-                StartCoroutine(FadeTo(starMats[0], 0, 5f));
+                StartCoroutine(FadeTo(skybox, dayThickness, 5));
+                StartCoroutine(FadeTo(starMats[0], 0, 10f));
             }
         }
 
         for (int i = 0; i < starTransforms.Length - 1; i++)
         {
             //make stars follow player
-            starTransforms[i + 1].position = Vector3.Lerp(starTransforms[i + 1].position, new Vector3(player.transform.position.x, 
+            starTransforms[i + 1].position = Vector3.Lerp(starTransforms[i + 1].position, new Vector3(player.transform.position.x,
                 starTransforms[i + 1].position.y, player.transform.position.z), 0.1f);
 
             starMats[i].material.color = starMats[0].material.color;
@@ -116,7 +121,7 @@ public class DayNightController : MonoBehaviour
             intensityMultiplier = Mathf.Clamp01(1 - ((currentTimeOfDay - 0.73f) * (1 / 0.02f)));
         }
 
-        sun.intensity = sunInitialIntensity * intensityMultiplier/2;
+        sun.intensity = sunInitialIntensity * intensityMultiplier / 2;
     }
 
     IEnumerator FadeTo(Renderer obj, float aValue, float aTime)
@@ -127,6 +132,19 @@ public class DayNightController : MonoBehaviour
             Color newColor = new Color(1, 1, 1, Mathf.Lerp(alpha, aValue, t));
             //print(newColor);
             obj.material.color = newColor;
+            yield return null;
+        }
+    }
+
+    IEnumerator FadeTo(string skyboxVarName, float aValue, float aTime)
+    {
+        float oldVal = RenderSettings.skybox.GetFloat(skyboxVarName);
+        print(oldVal);
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / aTime)
+        {
+            float newVal = Mathf.Lerp(oldVal, aValue, t);
+            print(newVal);
+            RenderSettings.skybox.SetFloat(skyboxVarName, newVal);
             yield return null;
         }
     }
