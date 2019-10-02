@@ -211,6 +211,7 @@ public class Fishing : MonoBehaviour
         fish.transform.position = fishLoc;
         fishStack.Add(fish);
         fishy.GetComponent<Rigidbody>().useGravity = true;
+        fishy.transform.parent = fishStackLocation.transform;
     }
 
     public void ClearFishStack(){
