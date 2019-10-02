@@ -84,7 +84,12 @@ MonoBehaviour:
   - you know it
   - i'm sorry to hear that
   - that's pretty severe
-  - wish I could
+  - not really sure
+  - I don't know
+  - not me
+  - good to hear
+  - just sayin hello
+  - good for you
   isClimbing: 0
   climbSpeed: 15
   deadRotationSpeed: 0.5

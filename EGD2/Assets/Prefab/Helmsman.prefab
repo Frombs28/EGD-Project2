@@ -66,7 +66,7 @@ MonoBehaviour:
     to see it end\u2026"
   - "It\u2019s days like these that are going to be the ones I look back on. Blue
     as far as the eye can see. Just perfect."
-  - "I\u2019ll try not to rock us too much, but no promises, kid."
+  - "I\u2019ll try not to rock us too much, but no promises, kid!"
   - "Gettin\u2019 some shut eye, eh? See you when the sun\u2019s up."
   - "Until mornin\u2019!"
   - "I\u2019ll be dreamin of my daughter tonight. You got anything to look forward
@@ -80,6 +80,8 @@ MonoBehaviour:
   - Listen, lad, I really wish I could talk with you all day, but I need to focus.
     Catch me up later, eh?
   day: 1
+  myArray: 030000000f00000003000000090000000200000015000000180000000500000005000000040000000400000003000000040000000400000007000000070000000700000011000000050000000f0000000f0000000f0000000f0000000f00000007000000
+  player: {fileID: 0}
 --- !u!114 &2930578288666759762
 MonoBehaviour:
   m_ObjectHideFlags: 0

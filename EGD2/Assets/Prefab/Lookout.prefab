@@ -340,7 +340,7 @@ MonoBehaviour:
   - Happy for you to sit up here with me, play some music if you like, but I need
     to keep my eyes ahead and my mouth closed for the time being.
   day: 1
-  myArray: 
+  myArray: 0f0000000f00000003000000090000001b0000001c0000001b0000000e0000000600000004000000050000001d0000000800000013000000070000000c0000001000000010000000030000000f0000000f0000000f0000000f0000000f00000007000000
   player: {fileID: 0}
 --- !u!114 &4443811672547561186
 MonoBehaviour:
