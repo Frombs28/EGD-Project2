@@ -8,6 +8,7 @@ public class NPCScript : MonoBehaviour
     //public GameObject NameManager;
     //public int nameNum;
     bool named;
+    bool talkedTo;
     public int id = 0;
     public string[] myDialogue;
     /*
@@ -23,6 +24,7 @@ public class NPCScript : MonoBehaviour
     void Start()
     {
         named = false;
+        talkedTo = false;
     }
 
     // Update is called once per frame
@@ -59,8 +61,31 @@ public class NPCScript : MonoBehaviour
 
     public string[] GetDialogue()
     {
-        string[] returnVal = myDialogue;
+        string[] returnVal = new string[4];
+        for(int i = 0; i < 4; i++)
+        {
+            returnVal[i] = myDialogue[i];
+        }
+        talkedTo = true;
         return returnVal;
+    }
+
+    public string[] GetOneLiner()
+    {
+        string[] returnVal = new string[2];
+        returnVal[0] = myDialogue[0];
+        returnVal[1] = myDialogue[4];
+        return returnVal;
+    }
+
+    public void RefreshDialogue()
+    {
+        talkedTo = false;
+    }
+
+    public bool IsTalkedTo()
+    {
+        return talkedTo;
     }
 
 }

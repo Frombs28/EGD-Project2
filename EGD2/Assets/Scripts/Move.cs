@@ -23,6 +23,7 @@ public class Move : MonoBehaviour {
     public float moveLockTime = 1f;
     private CharacterController controller;
     Vector3 velocity;
+    bool inRange;
 
     public bool isPlayerControllable = true;
 
@@ -37,8 +38,7 @@ public class Move : MonoBehaviour {
         rgd = GetComponent<Rigidbody>();
         footStep = GetComponent<AudioSource>();
         rotateScript = cam.GetComponent<rotate>();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        LockMouse();
     }
 
     public void SetPlayerControllable(bool state)
@@ -92,7 +92,8 @@ public class Move : MonoBehaviour {
     {
         if(isPlayerControllable)
         {
-            if(other.tag == "Teleporter")
+            /*
+            if (other.tag == "Teleporter")
             {
                 txt.text = "Press E";
                 if (Input.GetKeyDown(KeyCode.E))
@@ -103,15 +104,66 @@ public class Move : MonoBehaviour {
                     //put teleport code here
                 }
             }
+            */
+            if(other.gameObject.tag == "NPC")
+            {
+                txt.text = "Press E";
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    other.gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+                    txt.text = "";
+                    UnlockMouse();
+                }
+                return;
+            }
+            else if(other.gameObject.tag == "Memory")
+            {
+                //txt.text = "Press E to remember";
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (!other.gameObject.GetComponent<Memory>().HasBeenViewed())
+                    {
+                        other.gameObject.GetComponent<Memory>().Begin();
+                        txt.text = "";
+                        UnlockMouse();
+                    }
+                }
+                return;
+            }
+
+        }
+    }
+
+    public void LockMouse()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        isPlayerControllable = true;
+        rotateScript.fading = false;
+    }
+
+    public void UnlockMouse()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        isPlayerControllable = false;
+        rotateScript.fading = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Memory")
+        {
+            if (!other.gameObject.GetComponent<Memory>().HasBeenViewed())
+            {
+                txt.text = "Press E to remember";
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Teleporter")
-        {
-            txt.text = "";
-        }
+        txt.text = "";
     }
 
     void Stop(float fadeTime)

@@ -16,12 +16,12 @@
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Transparent" "Queue"="Transparent" }
         LOD 200
 
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
-        #pragma surface surf Standard fullforwardshadows vertex:vert addshadow
+        #pragma surface surf Standard alpha vertex:vert
         // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0
 
@@ -30,6 +30,7 @@
         struct Input
         {
             float2 uv_MainTex;
+            float2 uv_DetailTex;
         };
 
         half _Glossiness;
@@ -79,14 +80,13 @@
         {
             // Albedo comes from a texture tinted by color
             fixed4 col = tex2D(_MainTex, IN.uv_MainTex) + _Color;
-			col += tex2D(_DetailTex, IN.uv_MainTex/2+.1)*_UnderColor;
+			col += tex2D(_DetailTex, IN.uv_DetailTex)*_UnderColor;
             o.Albedo = col.rgb;
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
-            o.Alpha = col.a;
+            o.Alpha = _Color.a;
         }
         ENDCG
     }
-    FallBack "Diffuse"
 }
