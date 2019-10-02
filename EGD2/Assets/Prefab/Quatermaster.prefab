@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3849593510785144328}
   - component: {fileID: 2967664055142119009}
   - component: {fileID: -4032374428545795647}
+  - component: {fileID: 8623487552295107811}
   m_Layer: 0
   m_Name: Quatermaster
   m_TagString: Untagged
@@ -75,6 +76,7 @@ MonoBehaviour:
   - "You surprise me, @, you\u2019re actually not half bad with that."
   - "Not the time, nor the place. There\u2019s work to be done."
   - If you don't mind, I'm quite busy. Go find somebody else to bother.
+  day: 1
 --- !u!114 &-4032374428545795647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,5 +92,17 @@ MonoBehaviour:
   dialogue:
     name1: 
     name2: 
-  playerName: 
   sentences: []
+--- !u!135 &8623487552295107811
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5544660579560293159}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4
+  m_Center: {x: 0, y: 0, z: 0}
