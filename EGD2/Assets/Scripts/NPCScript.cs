@@ -43,6 +43,7 @@ public class NPCScript : MonoBehaviour
     {
         myName = newName;
         named = true;
+        Debug.Log("Set name to " + myName);
     }
 
     public void Talk()
