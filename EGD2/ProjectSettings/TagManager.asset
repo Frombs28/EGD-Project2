@@ -6,7 +6,7 @@ TagManager:
   tags:
   - NPC
   - Memory
-  - ladderBase
+  - ladderTop
   layers:
   - Default
   - TransparentFX

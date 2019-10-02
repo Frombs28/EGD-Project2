@@ -62,8 +62,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b53d447dffc551d4c9d3354450b7d06b, type: 3}
   - {fileID: 8300000, guid: 159e926e413692d408581e5b18070992, type: 3}
   - {fileID: 8300000, guid: d68b2cfc12043654b858cafb90b1f82b, type: 3}
-  timeBase: 40
-  timeRange: 5
+  timeBase: 60
+  timeRange: 10
 --- !u!82 &359036527
 AudioSource:
   m_ObjectHideFlags: 0
