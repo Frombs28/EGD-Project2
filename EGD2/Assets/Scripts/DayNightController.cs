@@ -15,6 +15,10 @@ public class DayNightController : MonoBehaviour
     public float timeMultiplier = 1f;
     private float currentTime;
     public float timeToLerp = 5f;
+    private bool day = true;
+
+    private Transform[] starTransforms;
+    private Renderer[] starMats;
 
     private Color transparent;
 
@@ -24,6 +28,9 @@ public class DayNightController : MonoBehaviour
     {
         transparent = new Color(1, 1, 1, 0);
         sunInitialIntensity = sun.intensity;
+
+        starTransforms = stars.GetComponentsInChildren<Transform>();
+        starMats = stars.GetComponentsInChildren<Renderer>();
     }
 
     void Update()
@@ -42,26 +49,36 @@ public class DayNightController : MonoBehaviour
 
     void UpdateStars()
     {
-        Transform[] starTransforms = stars.GetComponentsInChildren<Transform>();
-        Renderer[] starList = stars.GetComponentsInChildren<Renderer>();
-        for (int i = 0; i < starList.Length; i++)
+        //print(day);
+
+        print(starMats.Length);
+        print(starTransforms.Length);
+
+        //fade in stars on nighttime
+        if (currentTimeOfDay < .25f || currentTimeOfDay > .75f)
+        {
+            if (!day)
+            {
+                day = true;
+                StartCoroutine(FadeTo(starMats[0], 1, 5f));
+            }
+        }
+        else
+        {
+            if (day)
+            {
+                day = false;
+                StartCoroutine(FadeTo(starMats[0], 0, 5f));
+            }
+        }
+
+        for (int i = 0; i < starTransforms.Length - 1; i++)
         {
             //make stars follow player
-            starTransforms[i].position = Vector3.Lerp(starTransforms[i].position, new Vector3(player.transform.position.x, 
-                starTransforms[i].position.y, player.transform.position.z), 0.1f);
+            starTransforms[i + 1].position = Vector3.Lerp(starTransforms[i + 1].position, new Vector3(player.transform.position.x, 
+                starTransforms[i + 1].position.y, player.transform.position.z), 0.1f);
 
-            //fade in stars on nighttime
-            if (currentTimeOfDay < .25f || currentTimeOfDay > .75f)
-            {
-                Color newColor = new Color(1,1,1, Mathf.Lerp(starList[i].material.color.a, 1, currentTime/timeToLerp));
-                print(newColor);
-                starList[i].material.color = newColor;
-            }
-            else
-            {
-                Color newColor = new Color(1, 1, 1, Mathf.Lerp(starList[i].material.color.a, 0, currentTime / timeToLerp));
-                starList[i].material.color = newColor;
-            }
+            starMats[i].material.color = starMats[0].material.color;
         }
     }
 
@@ -108,6 +125,7 @@ public class DayNightController : MonoBehaviour
         for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / aTime)
         {
             Color newColor = new Color(1, 1, 1, Mathf.Lerp(alpha, aValue, t));
+            //print(newColor);
             obj.material.color = newColor;
             yield return null;
         }
