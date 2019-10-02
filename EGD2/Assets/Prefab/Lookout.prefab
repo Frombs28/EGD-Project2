@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4217701826101321835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5038901880201185446}
+  - component: {fileID: 1257885071323767139}
+  - component: {fileID: 4443811672547561186}
+  m_Layer: 0
+  m_Name: Lookout
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5038901880201185446
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4217701826101321835}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.69, z: 35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1257885071323767139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4217701826101321835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a280b00bf50eb7342beb94e686a938f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myName: 
+  id: 4
+  myDialogue:
+  - '*Bird cawing*'
+  - '*wind rushing*'
+  - '*sail flapping*'
+  - Ho!
+  - Morning, sir, nothing new to report!
+  - Good to see you, Mister @, what are you doing all the way up here?
+  - "Been a long night, sir, but I\u2019m doing just fine!"
+  - Come up for the view or the company?
+  - "It\u2019s a happy day when the minstrel climbs up my wooden tower! Hello!"
+  - The open sea sure is exciting! So much to see and learn at every moment!
+  - "Say, do you think I\u2019d be any good at schooling? I keep wanting to know more
+    about the stars, and I think the Captain\u2019s run out of answers\u2026"
+  - "I think, in a couple years, I might try pursuing academia. When you all don\u2019t
+    need me anymore, I mean! What do you think?"
+  - "Do you ever think about what\u2019s up above the sky?"
+  - "Look out there\u2026 over the water. Isn\u2019t it just full to bursting with
+    mystery? You should see it up here at night\u2026"
+  - "May the stars watch over your slumber\u2026 and I\u2019ll keep an eye on the
+    stars!"
+  - "Don\u2019t stay up too late, don\u2019t want the quartermaster breathing down
+    your neck."
+  - "By my estimations, sir, it\u2019ll be an easy night. Enjoy it!"
+  - "Watch your step on the way down, it\u2019s quite the fall in the dark."
+  - "Hope to see you again tomorrow! Just\u2026 come on up\u2026 whenever\u2026 I\u2019ll..
+    be here\u2026"
+  - That was fantastic! Many thanks for playing that for me!
+  - "What a lovely tune\u2026 only thing I\u2019ve heard for hours is the wind."
+  - Your mastery of music never ceases to amaze me, sir.
+  - My mood is sufficiently lifted, much appreciated!
+  - "Well, I see what the helmsman was talking about, you\u2019re rather good with
+    that instrument! A kalimba, was it?"
+  - Happy for you to sit up here with me, play some music if you like, but I need
+    to keep my eyes ahead and my mouth closed for the time being.
+  day: 1
+--- !u!114 &4443811672547561186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4217701826101321835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c1757db796e8d40b076f59c55fc04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name1: 
+    name2: 
+  playerName: 
+  sentences: []

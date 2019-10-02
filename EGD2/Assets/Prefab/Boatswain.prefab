@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6777688365955234355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 457587529849522877}
+  - component: {fileID: 4431916075585453841}
+  - component: {fileID: 3775379160816247499}
+  m_Layer: 0
+  m_Name: Boatswain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &457587529849522877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6777688365955234355}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.69, z: 35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4431916075585453841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6777688365955234355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a280b00bf50eb7342beb94e686a938f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myName: 
+  id: 2
+  myDialogue:
+  - '*water splashing*'
+  - '*ropes creaking*'
+  - '*wind kicks up*'
+  - Grooaann..
+  - Hi ho! What are you doing up so late?
+  - "Morning. Say, you didn\u2019t happen to see anyone in my room earlier, did you?
+    I swear someone was in there\u2026"
+  - Another day at the grindstone, eh, @?
+  - What do you want?
+  - "I don\u2019t like the feeling of this morning. Gives me chills, it does."
+  - "We have to get off this boat. The whole crew, they\u2019ve got it out for me,
+    I can see it in their eyes."
+  - "I thought this was supposed to be a lawless life, out on the high sea? Plundering,
+    pirating\u2026 all we do is deliver damn boxes, and on a schedule, too."
+  - "I\u2019d give my left hand to be in some gutter in some city somewhere, because
+    then at least I\u2019d know where the hell I was!"
+  - "The second I step off this boat I\u2019m never getting back on; find me in some
+    tavern somewhere, drunk off my ass and lousy with gold."
+  - "This is the last time I\u2019ll take orders from some blithering fool. From now
+    on, I work for myself and myself alone."
+  - Sleep with one eye open, lad. Poseidon knows I will.
+  - Alright, have a good rest, and keep your mitts out of my cabin.
+  - Another uneventful day in this miserable wooden prison.
+  - See you tomorrow, sadly.
+  - "Get yourself to bed, kid, and out of my hair. I don\u2019t like you snooping
+    around me like this."
+  - "Music isn\u2019t going to help on a day like today, @."
+  - Cut it out with the songs, will ya? Some of us have a ship to run.
+  - Now how do you expect me to keep my eye on the rest of these bastards with all
+    that ruckus?
+  - "Beautiful, @, but very distracting. Can\u2019t you do that somewhere else?"
+  - Really, really not necessary. We just need to keep our heads down and work so
+    we can leave sooner.
+  - Not in the mood, you've bothered me enough today.
+  day: 1
+--- !u!114 &3775379160816247499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6777688365955234355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c1757db796e8d40b076f59c55fc04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name1: 
+    name2: 
+  playerName: 
+  sentences: []
