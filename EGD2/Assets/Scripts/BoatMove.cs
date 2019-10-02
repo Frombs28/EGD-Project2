@@ -17,12 +17,12 @@ public class BoatMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        changeCourse = true;
-        canMove = true;
+        changeCourse = false;
+        canMove = false;
 
         //rb = GetComponent<Rigidbody>();
         maxVelocity = 10f;
-        startSpeed = new Vector3(1f, 0f, 1f);
+        startSpeed = new Vector3(1f, 0f, 0f);
         startSpeed *= maxVelocity;
         direction = startSpeed;
 
