@@ -66,7 +66,7 @@ public class Fishing : MonoBehaviour
         } 
     }
 
-    void StartFishing(){
+    public void StartFishing(){
         //throw out line here
         StartCoroutine("CastLine");
         Debug.Log("casting!!1");
