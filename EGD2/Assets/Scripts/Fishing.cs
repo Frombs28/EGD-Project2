@@ -47,9 +47,9 @@ public class Fishing : MonoBehaviour
         fishStack = new List<GameObject>();
         fishingLine = GetComponent<LineRenderer>();
         fishingLine.positionCount = 0;
-        p0Init = p0.transform.position;
-        p1Init = p1.transform.position;
-        p2Init = p2.transform.position;
+        p0Init = p0.transform.localPosition;
+        p1Init = p1.transform.localPosition;
+        p2Init = p2.transform.localPosition;
         fishyPrefab.SetActive(false);
         player = FindObjectOfType<Move>();
     }
@@ -77,7 +77,10 @@ public class Fishing : MonoBehaviour
         int counter = 0;
         fishingLine.positionCount = 0;
         float step = 1/lineCastTime;
+        Vector3 oldPos = p0.transform.position;
         for(float t = 0.0f; t-1.0<=epsilon;t+=step*Time.deltaTime){
+            UpdateOldPoints(p0.transform.position-oldPos);
+            oldPos = p0.transform.position;
             fishingLine.positionCount = counter+1;
             Vector3 newPoint = BezierQuad(t, p0.transform.position, p1.transform.position, p2.transform.position);
             fishingLine.SetPosition(counter, newPoint);
@@ -86,6 +89,14 @@ public class Fishing : MonoBehaviour
         }
         startTime = Time.time;
         isFishing = true;
+    }
+
+    void UpdateOldPoints(Vector3 offset){
+        Vector3[] positions = new Vector3[fishingLine.positionCount] ;
+        fishingLine.GetPositions(positions);
+        for(int i = 0; i<fishingLine.positionCount; i++){
+            fishingLine.SetPosition(i, positions[i]+offset);
+        }
     }
 
     public void PlayerDrawsIn(){
@@ -103,11 +114,14 @@ public class Fishing : MonoBehaviour
             fishy.transform.Rotate(0,180,0);
             fishy.SetActive(true);
         }
+        Vector3 oldPos = p0.transform.position;
         for(float t = 1.0f; t-0.0f>=epsilon;t-=step){
             if(counter<=0){
                 fishingLine.positionCount = 0;
                 break;
             }
+            UpdateOldPoints(p0.transform.position-oldPos);
+            oldPos = p0.transform.position;
             fishingLine.positionCount = counter;
             Vector3 newPoint = BezierQuad(t, p0.transform.position, p1.transform.position, p2.transform.position);
             if(isFishCaught){
@@ -169,9 +183,9 @@ public class Fishing : MonoBehaviour
     }
 
     private void ResetPoints(){
-        p0.transform.position = p0Init;
-        p1.transform.position = p1Init;
-        p2.transform.position = p2Init;
+        p0.transform.localPosition = p0Init;
+        p1.transform.localPosition = p1Init;
+        p2.transform.localPosition = p2Init;
     }
     private void RedrawLine(){
         int counter = 0;
