@@ -99,6 +99,7 @@ public class Fishing : MonoBehaviour
         Debug.Log("Step is: "+ step);
         if(isFishCaught){
             fishy = Instantiate(fishyPrefab, fishyPrefab.transform.position, Quaternion.identity);
+            fishy.GetComponent<Rigidbody>().useGravity = false;
             fishy.transform.Rotate(0,180,0);
             fishy.SetActive(true);
         }
@@ -195,6 +196,7 @@ public class Fishing : MonoBehaviour
         fishLoc.y += fishStack.Count*fish.GetComponent<BoxCollider>().size.y;
         fish.transform.position = fishLoc;
         fishStack.Add(fish);
+        fishy.GetComponent<Rigidbody>().useGravity = true;
     }
 
     public void ClearFishStack(){
