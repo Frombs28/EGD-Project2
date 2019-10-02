@@ -15,6 +15,7 @@ public class Memory : MonoBehaviour
     void Start()
     {
         memory.canvasRenderer.SetAlpha(0.0f);
+        memory.gameObject.SetActive(false);
         viewed = false;
     }
 
@@ -28,8 +29,9 @@ public class Memory : MonoBehaviour
     {
         memory.sprite = one;
         memory.canvasRenderer.SetAlpha(0.0f);
+        memory.gameObject.SetActive(true);
         memory.CrossFadeAlpha(1.0f, fadeTime, false);
-        Invoke("Step2", fadeTime);
+        Invoke("Step2", fadeTime*2);
     }
 
     void Step2()
@@ -42,7 +44,7 @@ public class Memory : MonoBehaviour
     {
         memory.sprite = two;
         memory.CrossFadeAlpha(1.0f, fadeTime, false);
-        Invoke("Step4", fadeTime);
+        Invoke("Step4", fadeTime*2);
     }
 
     void Step4()
@@ -54,7 +56,8 @@ public class Memory : MonoBehaviour
     void End()
     {
         viewed = true;
-        FindObjectOfType<Move>().LockMouse();
+        FindObjectOfType<Move>().UnlockPlayer();
+        memory.gameObject.SetActive(false);
     }
 
     public bool HasBeenViewed()
