@@ -67,10 +67,26 @@ MonoBehaviour:
   - Yeah, I know what you mean.
   - Absolutely
   - Thank you
-  - 
-  - 
-  - 
+  - See you
+  - Not really
+  - Hmm?
+  - It me
+  - On my way
+  - I won't
+  - I hope so
+  - Bit of both
+  - '...'
+  - Will do
+  - Of course
+  - yes, you're right
+  - wish I could
+  - oo....kay?
+  - you know it
+  - i'm sorry to hear that
+  - that's pretty severe
+  - wish I could
   isClimbing: 0
+  climbSpeed: 15
   deadRotationSpeed: 0.5
 --- !u!82 &2754044537113669268
 AudioSource:
