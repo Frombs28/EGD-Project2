@@ -5,6 +5,7 @@ using UnityEngine;
 public class Fishing : MonoBehaviour
 {
     public bool isFishing = false;
+    private bool fishOnLine = false;
     [SerializeField]
     [Range(0,1)]
     private float fishingChance = .05f;
@@ -29,7 +30,15 @@ public class Fishing : MonoBehaviour
     private float startTime = 0.0f;
     [SerializeField]
     private int drawInToCastRatio = 2;
+    [SerializeField]
+    private float maxLineDistance = 100f;
+    [SerializeField]
+    private int fastestFish = 10;
+    [SerializeField]
+    private int slowestFish = 5;
+    private int fishSpeed = 0;
     Rigidbody fishyRb;
+    Move player;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,10 +47,10 @@ public class Fishing : MonoBehaviour
         p0Init = p0.transform.position;
         p1Init = p1.transform.position;
         p2Init = p2.transform.position;
-        StartFishing();
         fishyRb = fishy.GetComponent<Rigidbody>();
         fishyRb.useGravity = false;
         fishy.SetActive(false);
+        player = FindObjectOfType<Move>();
     }
 
     // Update is called once per frame
@@ -49,10 +58,15 @@ public class Fishing : MonoBehaviour
     {
         if(isFishing){
             MoveLine();
+            TryCatch();
+            if(Input.GetKeyDown(KeyCode.E)){
+                Debug.Log("Akshdfkjshdf");
+                PlayerDrawsIn();
+            }
         } 
     }
 
-    void StartFishing(){
+    public void StartFishing(){
         //throw out line here
         StartCoroutine("CastLine");
         Debug.Log("casting!!1");
@@ -70,17 +84,21 @@ public class Fishing : MonoBehaviour
         }
         startTime = Time.time;
         isFishing = true;
-        StartCoroutine("DrawLineIn");
     }
 
-    IEnumerator DrawLineIn(){
+    public void PlayerDrawsIn(){
+        StartCoroutine(DrawLineIn(drawInToCastRatio,fishOnLine));
+    }
+
+    private IEnumerator DrawLineIn(int stepRatio, bool isFishCaught = false){
         int counter = fishingLine.positionCount;
-        float step = drawInToCastRatio/(float)fishingLine.positionCount;
+        float step = stepRatio/(float)fishingLine.positionCount;
         isFishing = false;
         Debug.Log("Step is: "+ step);
-        fishy.SetActive(true);
+        if(isFishCaught){
+            fishy.SetActive(true);
+        }
         for(float t = 1.0f; t-0.0f>=epsilon;t-=step){
-            Debug.Log(counter);
             if(counter<=0){
                 fishingLine.positionCount = 0;
                 break;
@@ -88,13 +106,19 @@ public class Fishing : MonoBehaviour
             fishingLine.positionCount = counter;
             Vector3 newPoint = BezierQuad(t, p0.transform.position, p1.transform.position, p2.transform.position);
             fishingLine.SetPosition(counter-1, newPoint);
-            fishy.transform.position = newPoint;
-            counter-=drawInToCastRatio;
+            if(isFishCaught){
+                fishy.transform.position = newPoint;
+            }  
+            counter-=stepRatio;
             yield return null;
         }
         fishingLine.positionCount = 0;
-        fishyRb.useGravity = true;
-        //To Do: have fishy stay/flop for 2 seconds and then set active to false
+        if(isFishCaught){
+            fishyRb.useGravity = true;
+            //To Do: have fishy stay/flop for 2 seconds and then set active to false
+        }
+        ResetPoints();
+        if(player!=null) player.UnlockPlayer();
     }
 
     private Vector3 BezierQuad(float t, Vector3 p0, Vector3 p1, Vector3 p2){
@@ -102,16 +126,40 @@ public class Fishing : MonoBehaviour
     }
 
     private void MoveLine(){
+        if(Vector3.Distance(p2.transform.position, p0.transform.position)>maxLineDistance){
+            SnapLine();
+            return;
+        }
         Vector3 direction = p1.transform.position - p0.transform.position;
         direction.y = 0;
-        direction.Normalize(); 
+        direction.Normalize();
+        if(fishOnLine){
+            //maybe have something more dramatic than just speeding up when a fish is on line
+            direction*=fishSpeed;
+        } 
         p1.transform.position+=direction*lineMoveSpeed*Time.deltaTime;
         direction = p2.transform.position - p0.transform.position;
         direction.y = 0;
         direction.Normalize(); 
-        p2.transform.position+=direction*Time.deltaTime;
+        if(fishOnLine){
+            direction*=fishSpeed;
+        } 
+        p2.transform.position+=direction*Time.deltaTime*lineMoveSpeed;
         RedrawLine();
+        //Debug.Log(Vector3.Angle(p1.transform.position, p0.transform.position));
     }
+
+    private void TryCatch(){
+        if(!fishOnLine){
+            float fishCaught = Random.value;
+            if(fishingChance>fishCaught){
+                Debug.Log("caught fish!!");
+                fishOnLine = true;
+                fishSpeed = Random.Range(slowestFish, fastestFish);
+            }
+        }
+    }
+
     private void ResetPoints(){
         p0.transform.position = p0Init;
         p1.transform.position = p1Init;
@@ -127,5 +175,12 @@ public class Fishing : MonoBehaviour
             fishingLine.SetPosition(counter, newPoint);
             counter++;
         }
+    }
+
+    private void SnapLine(){
+        int ratio = 5*drawInToCastRatio;
+        StartCoroutine(DrawLineIn(ratio));
+        //fishingLine.positionCount = 0;
+        isFishing = false;
     }
 }
