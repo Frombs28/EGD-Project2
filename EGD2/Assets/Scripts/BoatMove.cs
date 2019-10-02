@@ -13,6 +13,7 @@ public class BoatMove : MonoBehaviour
     public bool changeCourse;
     public bool canMove;
     public GameObject wheel;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +49,7 @@ public class BoatMove : MonoBehaviour
                 direction *= maxVelocity;
             }
             transform.position += direction * Time.deltaTime;
+            player.GetComponent<CharacterController>().Move(direction * Time.deltaTime);
         }
     }
 
