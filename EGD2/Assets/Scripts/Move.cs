@@ -28,6 +28,7 @@ public class Move : MonoBehaviour {
     public bool isPlayerControllable = true;
     public string[] dialogue;
     public bool isClimbing = false;
+    public int climbSpeed = 15;
 
     [Space]
     [SerializeField]
@@ -62,12 +63,12 @@ public class Move : MonoBehaviour {
                 {
                     if (Input.GetKey(KeyCode.W) && transform.position.y < 70)
                     {
-                        Vector3 pos = new Vector3(0f, Time.deltaTime * 15, 0f);
+                        Vector3 pos = new Vector3(0f, Time.deltaTime * climbSpeed, 0f);
                         controller.Move(pos);
                     }
                     else
                     {
-                        Vector3 pos = new Vector3(0f, Time.deltaTime * -15, 0f);
+                        Vector3 pos = new Vector3(0f, Time.deltaTime * -climbSpeed, 0f);
                         controller.Move(pos);
                     }
                 }
