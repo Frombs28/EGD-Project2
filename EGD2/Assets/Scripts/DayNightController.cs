@@ -19,6 +19,10 @@ public class DayNightController : MonoBehaviour
     private float currentTime;
     public float timeToLerp = 5f;
     private bool day = true;
+    public Memory[] mems;
+    int memIndex = 0;
+    public MemoryEnd me;
+    public int dayNum = 1;
 
     private Transform[] starTransforms;
     private Renderer[] starMats;
@@ -37,6 +41,8 @@ public class DayNightController : MonoBehaviour
         starTransforms = stars.GetComponentsInChildren<Transform>();
         starMats = stars.GetComponentsInChildren<Renderer>();
         npcs = FindObjectsOfType<NPCScript>();
+        mems = FindObjectsOfType<Memory>();
+        me = FindObjectOfType<MemoryEnd>();
     }
 
     void Update()
@@ -50,7 +56,20 @@ public class DayNightController : MonoBehaviour
         if (currentTimeOfDay >= 1)
         {
             currentTimeOfDay = 0;
-            foreach(NPCScript npc in npcs)
+            dayNum++;
+            if (dayNum % 3 == 0)
+            {
+                if (memIndex < mems.Length)
+                {
+                    mems[memIndex].Begin();
+                    memIndex++;
+                }
+                else
+                {
+                    me.Begin();
+                }
+            }
+            foreach (NPCScript npc in npcs)
             {
                 npc.day++;
             }

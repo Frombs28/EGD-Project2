@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Memory : MonoBehaviour
+public class MemoryEnd : MonoBehaviour
 {
     public Image memory;
     public Sprite one;
@@ -11,6 +11,7 @@ public class Memory : MonoBehaviour
     public float fadeTime;
     float startTime;
     bool viewed;
+    public bool final = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,7 @@ public class Memory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void Begin()
@@ -31,24 +32,5 @@ public class Memory : MonoBehaviour
         memory.canvasRenderer.SetAlpha(0.0f);
         memory.gameObject.SetActive(true);
         memory.CrossFadeAlpha(1.0f, fadeTime, false);
-        Invoke("Step2", fadeTime * 2);
-    }
-
-    void Step2()
-    {
-        memory.CrossFadeAlpha(0.0f, fadeTime, false);
-        Invoke("End", fadeTime);
-    }
-
-    void End()
-    {
-        viewed = true;
-        FindObjectOfType<Move>().UnlockPlayer();
-        memory.gameObject.SetActive(false);
-    }
-
-    public bool HasBeenViewed()
-    {
-        return viewed;
     }
 }

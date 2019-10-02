@@ -22,6 +22,8 @@ public class NamingScript : MonoBehaviour
         playerField.gameObject.SetActive(true);
         playerField.ActivateInputField();
         player.UnlockMouse();
+        notes = FindObjectOfType<PlayNotes>();
+        notes.typing = true;
         Debug.Log(playerField.isActiveAndEnabled);
     }
 
@@ -37,6 +39,7 @@ public class NamingScript : MonoBehaviour
         inputField.ActivateInputField();
         curNPC = npc;
         player.UnlockMouse();
+        notes.typing = true;
         //npc.SetName(curString);
     }
 
@@ -50,6 +53,7 @@ public class NamingScript : MonoBehaviour
         inputField.DeactivateInputField();
         inputField.gameObject.SetActive(false);
         player.LockMouse();
+        notes.typing = false;
     }
 
     public void ChangePlayerName(string newName)
@@ -71,7 +75,7 @@ public class NamingScript : MonoBehaviour
         player.LockMouse();
 
         boat.GetComponent<BoatMove>().canMove = true;
-
+        notes.typing = false;
         Debug.Log(newName);
     }
 
