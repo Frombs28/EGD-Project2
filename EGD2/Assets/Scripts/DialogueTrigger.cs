@@ -6,7 +6,7 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
     //public string myName;
-    public string playerName;
+    string playerName;
     public string[] sentences;
     //public BigDialogueManager manager;
     //public NameManager nm;

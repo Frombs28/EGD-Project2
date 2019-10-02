@@ -33,7 +33,7 @@ public class Move : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         controller = GetComponent<CharacterController>();
         rgd = GetComponent<Rigidbody>();
         footStep = GetComponent<AudioSource>();
