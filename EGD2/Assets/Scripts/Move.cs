@@ -138,16 +138,26 @@ public class Move : MonoBehaviour {
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        isPlayerControllable = true;
-        rotateScript.fading = false;
+        UnlockPlayer();
     }
 
     public void UnlockMouse()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        LockPlayer();
+    }
+
+    public void LockPlayer()
+    {
         isPlayerControllable = false;
         rotateScript.fading = true;
+    }
+
+    public void UnlockPlayer()
+    {
+        isPlayerControllable = true;
+        rotateScript.fading = false;
     }
 
     private void OnTriggerEnter(Collider other)
