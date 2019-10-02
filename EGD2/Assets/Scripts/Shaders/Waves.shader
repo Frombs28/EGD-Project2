@@ -13,6 +13,8 @@
         _WaveA("Wave A (dir, steepness, wavelength", Vector) = (1,0,0.5,10)
         _WaveB ("Wave B", Vector) = (0,1,0.25,20)
         _WaveC("Wave C", Vector) = (1,1,0.15,10)
+        _ScrollSpeed("Scroll Speed", float) = .5
+        _DetailScrollSpeed("Detail Scroll Speed", float) = .5
     }
     SubShader
     {
@@ -37,6 +39,7 @@
         half _Metallic;
         fixed4 _Color, _UnderColor;
         float4 _WaveA, _WaveB, _WaveC;
+        float _ScrollSpeed, _DetailScrollSpeed;
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -79,8 +82,12 @@
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
             // Albedo comes from a texture tinted by color
-            fixed4 col = tex2D(_MainTex, IN.uv_MainTex) + _Color;
-			col += tex2D(_DetailTex, IN.uv_DetailTex)*_UnderColor;
+            fixed2 newUV= IN.uv_MainTex;
+            newUV.y -=_ScrollSpeed*_Time;
+            fixed4 col = tex2D(_MainTex, newUV) + _Color;
+            newUV = IN.uv_DetailTex;
+            newUV.y -=_DetailScrollSpeed*_Time;
+			col += tex2D(_DetailTex, newUV)*_UnderColor;
             o.Albedo = col.rgb;
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;

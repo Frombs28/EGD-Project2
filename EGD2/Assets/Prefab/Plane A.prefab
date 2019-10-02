@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5126792712049017854
+--- !u!1 &7348983000530768870
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,30 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8177797054675333613}
-  - component: {fileID: 3749224533169135025}
+  - component: {fileID: 6027941394743796213}
   m_Layer: 0
-  m_Name: Fish
+  m_Name: Plane A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8177797054675333613
+--- !u!4 &6027941394743796213
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5126792712049017854}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 7348983000530768870}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
-  - {fileID: 4014640153419714930}
+  - {fileID: 1682620123978525165}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3749224533169135025
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5126792712049017854}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 3.769136, y: 0.6669626, z: 1.5162225}
-  m_Center: {x: -2.0840876, y: -1.7289472, z: 1.7443349}
---- !u!1 &7801058833851652437
+--- !u!1 &8566174631295205585
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -53,45 +39,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4014640153419714930}
-  - component: {fileID: 6679602774975415356}
-  - component: {fileID: 5068092184724698083}
+  - component: {fileID: 1682620123978525165}
+  - component: {fileID: 2265604173909369366}
+  - component: {fileID: 464601831182044802}
   m_Layer: 0
-  m_Name: 12993_Long_Fin_White__Cloud
+  m_Name: Plane_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4014640153419714930
+--- !u!4 &1682620123978525165
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7801058833851652437}
+  m_GameObject: {fileID: 8566174631295205585}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.13, y: -1.68, z: 0.47}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 8177797054675333613}
+  m_Father: {fileID: 6027941394743796213}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6679602774975415356
+--- !u!33 &2265604173909369366
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7801058833851652437}
-  m_Mesh: {fileID: 526328797727857531, guid: 6ecde766395254c63b5d600612ab2136, type: 3}
---- !u!23 &5068092184724698083
+  m_GameObject: {fileID: 8566174631295205585}
+  m_Mesh: {fileID: 2379236084264390011, guid: a08ce63c454564064b75eadfb0266c05, type: 3}
+--- !u!23 &464601831182044802
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7801058833851652437}
+  m_GameObject: {fileID: 8566174631295205585}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -102,7 +88,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 68f25f794af0f4b169b120b7e0d9ac7c, type: 2}
+  - {fileID: 2100000, guid: 0ad2f60bf3530b547a3f70ef030133a4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
