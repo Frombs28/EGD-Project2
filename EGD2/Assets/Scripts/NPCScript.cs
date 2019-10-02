@@ -11,6 +11,7 @@ public class NPCScript : MonoBehaviour
     bool talkedTo;
     public int id = 0;
     public string[] myDialogue;
+    public int day = 1;
     /*
      * This id number will allow us to number NPCs so all scripts know who they are.
      * Set up these ID numbers in the inspector
@@ -46,7 +47,8 @@ public class NPCScript : MonoBehaviour
 
     public void Talk()
     {
-        gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+
+        gameObject.GetComponent<DialogueTrigger>().TriggerDialogue(0);
     }
 
     public void Cheer()
