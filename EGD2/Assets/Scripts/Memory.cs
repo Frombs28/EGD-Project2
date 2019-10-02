@@ -7,7 +7,7 @@ public class Memory : MonoBehaviour
 {
     public Image memory;
     public Sprite one;
-    public Sprite two;
+    //public Sprite two;
     public float fadeTime;
     float startTime;
     bool viewed;
@@ -35,19 +35,6 @@ public class Memory : MonoBehaviour
     }
 
     void Step2()
-    {
-        memory.CrossFadeAlpha(0.0f, fadeTime, false);
-        Invoke("Step3", fadeTime);
-    }
-
-    void Step3()
-    {
-        memory.sprite = two;
-        memory.CrossFadeAlpha(1.0f, fadeTime, false);
-        Invoke("Step4", fadeTime*2);
-    }
-
-    void Step4()
     {
         memory.CrossFadeAlpha(0.0f, fadeTime, false);
         Invoke("End", fadeTime);

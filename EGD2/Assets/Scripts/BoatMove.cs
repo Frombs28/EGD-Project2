@@ -14,6 +14,8 @@ public class BoatMove : MonoBehaviour
     public bool canMove;
     public GameObject wheel;
     public GameObject player;
+    public GameObject water;
+    public GameObject cam;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +24,6 @@ public class BoatMove : MonoBehaviour
         canMove = false;
 
         //rb = GetComponent<Rigidbody>();
-        maxVelocity = 10f;
         startSpeed = new Vector3(0f, 0f, 1f);
         startSpeed *= maxVelocity;
         direction = startSpeed;
@@ -44,12 +45,15 @@ public class BoatMove : MonoBehaviour
                     last = Input.GetAxis("Horizontal");
                 }
                 transform.RotateAround(transform.position, transform.up, Time.deltaTime * last * maxVelocity);
+                cam.transform.RotateAround(transform.position, transform.up, Time.deltaTime * last * maxVelocity);
+                player.transform.RotateAround(transform.position, transform.up, Time.deltaTime * last * maxVelocity);
 
-                direction = new Vector3(Mathf.Sin(transform.rotation.y), 0, Mathf.Cos(transform.rotation.y));
+                direction = transform.forward;
                 direction *= maxVelocity;
             }
             transform.position += direction * Time.deltaTime;
             player.GetComponent<CharacterController>().Move(direction * Time.deltaTime);
+            water.transform.position += direction * Time.deltaTime;
         }
     }
 
