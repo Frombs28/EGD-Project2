@@ -170,7 +170,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 9899ab342564c43cba8fed9791e09642,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 9899ab342564c43cba8fed9791e09642,
         type: 3}
@@ -264,7 +264,7 @@ PrefabInstance:
     - target: {fileID: 1188708071100517619, guid: 658b517977f44b44d9a44a507a2a01f8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1188708071100517619, guid: 658b517977f44b44d9a44a507a2a01f8,
         type: 3}
@@ -404,6 +404,80 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1268873793}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &477545176
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 3cee2743d4d2b45fd82f903a7d3aab62,
+        type: 3}
+      propertyPath: m_Name
+      value: Crow's Nest
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3cee2743d4d2b45fd82f903a7d3aab62,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.49
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3cee2743d4d2b45fd82f903a7d3aab62,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3cee2743d4d2b45fd82f903a7d3aab62,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2.24
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3cee2743d4d2b45fd82f903a7d3aab62,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3cee2743d4d2b45fd82f903a7d3aab62,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3cee2743d4d2b45fd82f903a7d3aab62,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3cee2743d4d2b45fd82f903a7d3aab62,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3cee2743d4d2b45fd82f903a7d3aab62,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3cee2743d4d2b45fd82f903a7d3aab62,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3cee2743d4d2b45fd82f903a7d3aab62,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 3cee2743d4d2b45fd82f903a7d3aab62,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4891300741180247944, guid: 3cee2743d4d2b45fd82f903a7d3aab62,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 052ba56ed5bfac946915b742100dae8a, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3cee2743d4d2b45fd82f903a7d3aab62, type: 3}
 --- !u!20 &658372797 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 4965019604250346074, guid: e34c2f7881838d84181bd7c54f5f8208,
@@ -2445,8 +2519,8 @@ Transform:
   - {fileID: 877775947}
   - {fileID: 845262205}
   - {fileID: 1649504777}
-  m_Father: {fileID: 1784143891}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &5236361890512310769
 Transform:
