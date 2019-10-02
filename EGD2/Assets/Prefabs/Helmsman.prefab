@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6835488729606314436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7260244453046125473}
+  - component: {fileID: 3238320589668925384}
+  - component: {fileID: 2930578288666759762}
+  m_Layer: 0
+  m_Name: Helmsman
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7260244453046125473
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6835488729606314436}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3238320589668925384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6835488729606314436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a280b00bf50eb7342beb94e686a938f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myName: 
+  id: 0
+  myDialogue:
+  - '*wood creaking*'
+  - '*creak*'
+  - '*wheel sounds*'
+  - Ah?
+  - Morning, @!
+  - Sleepin late again! Long night?
+  - There you are! How goes it below?
+  - "Ah, the music man! How\u2019s about a ditty?"
+  - Good to see you, @! Ready to get to work?
+  - "A nice little place on the coast, all cozied up with my wife and daughter, can\u2019t
+    you see it?"
+  - "Now, don\u2019t take this the wrong way, I\u2019ve nothing against sailing. But
+    I can\u2019t wait to see my family again."
+  - "I\u2019ll miss you when we hit land, kid. I really will."
+  - "These have been some of the best years of my life, out here with you lot. Hate
+    to see it end\u2026"
+  - "It\u2019s days like these that are going to be the ones I look back on. Blue
+    as far as the eye can see. Just perfect."
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+--- !u!114 &2930578288666759762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6835488729606314436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c1757db796e8d40b076f59c55fc04e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue:
+    name1: 
+    name2: 
+  playerName: 
+  sentences: []
