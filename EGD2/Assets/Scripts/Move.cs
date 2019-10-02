@@ -108,11 +108,18 @@ public class Move : MonoBehaviour {
             if(other.gameObject.tag == "NPC")
             {
                 txt.text = "Press E";
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetMouseButtonDown(0))
                 {
                     other.gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
                     txt.text = "";
                     UnlockMouse();
+                }
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (other.gameObject.name == "Wheel")
+                    {
+                        other.gameObject.GetComponent<WheelTurn>().AllowSpin();
+                    }
                 }
                 return;
             }
