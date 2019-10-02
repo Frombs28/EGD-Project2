@@ -9,7 +9,7 @@ public class NamingScript : MonoBehaviour
     public InputField inputField;
     public InputField playerField;
     string curString;
-    NPCScript curNPC;
+    private NPCScript curNPC;
     public Move player;
     // Start is called before the first frame update
     void Start()
@@ -19,6 +19,7 @@ public class NamingScript : MonoBehaviour
         playerField.gameObject.SetActive(true);
         playerField.ActivateInputField();
         player.UnlockMouse();
+        Debug.Log(playerField.isActiveAndEnabled);
     }
 
     // Update is called once per frame
@@ -50,13 +51,13 @@ public class NamingScript : MonoBehaviour
 
     public void ChangePlayerName(string newName)
     {
-        if(newName.Length < 2)
+        Debug.Log(newName);
+        if (newName.Length == 0)
         {
             return;
         }
         foreach (DialogueTrigger trigger in FindObjectsOfType<DialogueTrigger>()){
             trigger.SetPlayerName(newName);
-            Debug.Log(trigger.name);
         }
         playerField.DeactivateInputField();
         playerField.gameObject.SetActive(false);

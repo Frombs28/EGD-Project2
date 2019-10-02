@@ -50,55 +50,59 @@ public class Move : MonoBehaviour {
 
 	// Update is called once per frame
 	void FixedUpdate () {
-        if (isClimbing)
+        if (isPlayerControllable)
         {
-            if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
+            if (isClimbing)
             {
-                controller.Move(new Vector3(0f, 0f, 0f));
-            }
-            else
-            {
-                if (Input.GetKey(KeyCode.W))
+                if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
                 {
-                    Vector3 pos = new Vector3(0f, Time.deltaTime * 30, 0f);
-                    controller.Move(pos);
+                    controller.Move(new Vector3(0f, 0f, 0f));
                 }
                 else
                 {
-                    Vector3 pos = new Vector3(0f, Time.deltaTime * -30, 0f);
-                    controller.Move(pos);
+                    if (Input.GetKey(KeyCode.W))
+                    {
+                        Vector3 pos = new Vector3(0f, Time.deltaTime * 30, 0f);
+                        controller.Move(pos);
+                    }
+                    else
+                    {
+                        Vector3 pos = new Vector3(0f, Time.deltaTime * -30, 0f);
+                        controller.Move(pos);
+                    }
                 }
             }
-        }
-        if (isPlayerControllable)
-        {
-            camDir = new Vector3(cam.transform.forward.x, 0, cam.transform.forward.z).normalized;
-            camSid = new Vector3(cam.transform.right.x, 0, cam.transform.right.z).normalized;
-
-            Vector3 fwd = Input.GetAxisRaw("Horizontal") * camSid;
-            Vector3 sid = Input.GetAxisRaw("Vertical") * camDir;
-
-            Vector3 move = fwd + sid;
-            controller.Move(move * Time.deltaTime * speed);
-            if (move != Vector3.zero)
-                transform.forward = move;
-
-            velocity.y += Physics.gravity.y * Time.deltaTime;
-            controller.Move(velocity * Time.deltaTime);
-
-            if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0 && !playing || Mathf.Abs(Input.GetAxis("Vertical")) > 0 && !playing)
+            else
             {
-                int i = Random.Range(0, aud.Count - 1);
-                footTimer = 0;
-                footStep.clip = aud[i];
-                footStep.Play();
-                playing = true;
+                camDir = new Vector3(cam.transform.forward.x, 0, cam.transform.forward.z).normalized;
+                camSid = new Vector3(cam.transform.right.x, 0, cam.transform.right.z).normalized;
+
+                Vector3 fwd = Input.GetAxisRaw("Horizontal") * camSid;
+                Vector3 sid = Input.GetAxisRaw("Vertical") * camDir;
+
+                Vector3 move = fwd + sid;
+                controller.Move(move * Time.deltaTime * speed);
+                if (move != Vector3.zero)
+                    transform.forward = move;
+
+                velocity.y += Physics.gravity.y * Time.deltaTime;
+                controller.Move(velocity * Time.deltaTime);
+
+                if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0 && !playing || Mathf.Abs(Input.GetAxis("Vertical")) > 0 && !playing)
+                {
+                    int i = Random.Range(0, aud.Count - 1);
+                    footTimer = 0;
+                    footStep.clip = aud[i];
+                    footStep.Play();
+                    playing = true;
+                }
+                if (Mathf.Abs(Input.GetAxis("Horizontal")) == 0 && Mathf.Abs(Input.GetAxis("Vertical")) == 0)
+                {
+                    footStep.Stop();
+                    playing = false;
+                }
             }
-            if (Mathf.Abs(Input.GetAxis("Horizontal")) == 0 && Mathf.Abs(Input.GetAxis("Vertical")) == 0)
-            {
-                footStep.Stop();
-                playing = false;
-            }
+
         }
         if(playing)
         {
@@ -221,12 +225,12 @@ public class Move : MonoBehaviour {
             if (isClimbing)
             {
                 isClimbing = false;
-                isPlayerControllable = true;
+                //isPlayerControllable = true;
             }
             else
             {
                 isClimbing = true;
-                isPlayerControllable = false;
+                //isPlayerControllable = false;
             }
 
         }
