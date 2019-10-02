@@ -21,7 +21,7 @@ public class DialogueTrigger : MonoBehaviour
         id = npc.GetID();
     }
 
-    public void TriggerDialogue()
+    public void TriggerDialogue(int i)
     {
         dialogue.name1 = playerName;
         dialogue.name2 = npc.myName;

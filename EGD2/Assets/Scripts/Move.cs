@@ -110,7 +110,7 @@ public class Move : MonoBehaviour {
                 txt.text = "Click to talk";
                 if (Input.GetMouseButtonDown(0) && !talking)
                 {
-                    other.gameObject.GetComponent<DialogueTrigger>().TriggerDialogue();
+                    other.gameObject.GetComponent<NPCScript>().Talk();
                     txt.text = "";
                     UnlockMouse();
                 }
