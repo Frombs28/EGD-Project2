@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,9 +41,11 @@ public class NPCScript : MonoBehaviour
 
     public void PlayerNameReplace(string newName)
     {
-        foreach(string sentence in myDialogue)
+        for(int i = 0; i < myDialogue.Length; i++)
         {
-            sentence.Replace("@", newName);
+            string sentence = myDialogue[i];
+            sentence = sentence.Replace("@", newName);
+            Debug.Log(sentence);
         }
     }
 
@@ -89,7 +91,7 @@ public class NPCScript : MonoBehaviour
             returnVal = new string[3];
             int i = Random.Range(0, 3);
 
-            returnVal[0] = player.dialogue[0];
+            returnVal[0] = player.dialogue[myArray[0]];
             returnVal[1] = myDialogue[i];
             returnVal[2] = player.dialogue[myArray[i]];
             return returnVal;
@@ -104,7 +106,7 @@ public class NPCScript : MonoBehaviour
         	}
         	else
         	{
-            	returnVal[0] = player.dialogue[1];
+            	returnVal[0] = player.dialogue[myArray[1]];
         	}
             returnVal[1] = myDialogue[i];
             returnVal[2] = player.dialogue[myArray[i]];

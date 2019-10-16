@@ -40,8 +40,8 @@ public class DialogueScript : MonoBehaviour
         //Debug.Log("Starting conversation between " + dialogue.name1 + " and " + dialogue.name2);
         animator.SetBool("isOpen", true);
         sentences.Clear();
-        name1 = dialogue.name1;
-        name2 = dialogue.name2;
+        name1 = dialogue.name1 + ":";
+        name2 = dialogue.name2 + ":";
         for(int i = 0; i < dialogue.Length(); i++)
         {
             string sentence = dialogue.Get(i);
